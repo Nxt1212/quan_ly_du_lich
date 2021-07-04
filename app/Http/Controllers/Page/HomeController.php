@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Http\Controllers\Page;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\Trademark;
+use App\Models\Slide;
+use App\Models\Event;
+use App\Models\Article;
+
+class HomeController extends Controller
+{
+    //
+    public function index()
+    {
+        return view('page.home.index');
+    }
+
+    public function contact()
+    {
+        return view('page.contact.index');
+    }
+
+    public function about()
+    {
+        return view('page.about.index');
+    }
+
+    public function transport()
+    {
+        return view('page.transport.index');
+    }
+
+    public function changeReturn()
+    {
+        return view('page.return.index');
+    }
+
+    public function security()
+    {
+        return view('page.security.index');
+    }
+}
