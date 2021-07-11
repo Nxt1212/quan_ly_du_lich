@@ -9,7 +9,7 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown user-menu">
             @php
-                $user = Auth::guard('admins')->user();
+                $user = Auth::user();
             @endphp
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <img src="{{ asset('/admin/dist/img/avatar5.png') }}" class="user-image img-circle elevation-2" alt="User Image">

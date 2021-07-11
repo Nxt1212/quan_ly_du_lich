@@ -154,3 +154,12 @@ function the_excerpt($text ,$num){
     }
 
 }
+
+function getTimeRegister($timeStart) {
+    $start = new Carbon($timeStart);
+    $currentTime = Carbon::now();
+    $timeThi = Carbon::parse($currentTime)->diffInMinutes($start, false);
+    return $timeThi;
+}
+
+

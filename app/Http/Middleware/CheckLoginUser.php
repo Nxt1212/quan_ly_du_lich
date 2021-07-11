@@ -15,7 +15,7 @@ class CheckLoginUser
      */
     public function handle($request, Closure $next)
     {
-        if (get_data_user('web')) {
+        if (get_data_user('users')) {
             return $next($request);
         }
 

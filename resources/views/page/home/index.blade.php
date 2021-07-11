@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@section('title', 'Trang chủ')
+@section('title', 'Mạng bán TOUR DU LỊCH trực tuyến hàng đầu Việt nam | Du Lịch Việt')
 @section('style')
 @stop
 @section('content')
@@ -8,11 +8,11 @@
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
                 <div class="col-md-7 ftco-animate">
-                    <span class="subheading">Welcome to Pacific</span>
-                    <h1 class="mb-4">Discover Your Favorite Place with Us</h1>
-                    <p class="caps">Travel to the any corner of the world, without going around in circles</p>
+                    <span class="subheading">Welcome to Du Lịch Việt</span>
+                    <h1 class="mb-4">Khám phá địa điểm yêu thích của bạn với chúng tôi</h1>
+                    <p class="caps">Du lịch đến bất kỳ nơi nào bạn chỉ cần liên hệ với chúng tôi</p>
                 </div>
-                <a href="" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+                <a href="https://www.youtube.com/watch?v=6cwK3nzBBNg" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
                     <span class="fa fa-play"></span>
                 </a>
             </div>
@@ -27,14 +27,13 @@
                         <div class="row">
                             <div class="col-md-12 nav-link-wrap">
                                 <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                    <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Search Tour</a>
+                                    <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Tìm kiếm Tour</a>
 
-                                    <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Hotel</a>
+                                    <a class="nav-link " id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Tìm kiếm khách sạn</a>
 
                                 </div>
                             </div>
                             <div class="col-md-12 tab-wrap">
-
                                 <div class="tab-content" id="v-pills-tabContent">
 
                                     <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
@@ -42,34 +41,86 @@
                                             <div class="row no-gutters">
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4 border-0">
-                                                        <label for="#">Destination</label>
+                                                        <label for="#">Tour</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control" placeholder="Search place">
+                                                            <input type="text" name="key_tour" class="form-control" placeholder="Tìm kiếm">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4">
-                                                        <label for="#">Check-in date</label>
+                                                        <label for="#">Ngày Khởi Hành</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="fa fa-calendar"></span></div>
-                                                            <input type="text" class="form-control checkin_date" placeholder="Check In Date">
+                                                            <input type="text" class="form-control checkin_date" placeholder="Ngày Khởi Hành">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4">
-                                                        <label for="#">Check-out date</label>
+                                                        <label for="#">Ngày Trở Về</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="fa fa-calendar"></span></div>
-                                                            <input type="text" class="form-control checkout_date" placeholder="Check Out Date">
+                                                            <input type="text" class="form-control checkout_date" placeholder="Ngày Trở Về">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4">
-                                                        <label for="#">Price Limit</label>
+                                                        <label for="#">Khoảng giá</label>
+                                                        <div class="form-field">
+                                                            <div class="select-wrap">
+                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                                                <select name="" id="" class="form-control">
+                                                                    <option value="">Chọn khoảng giá</option>
+                                                                    <option value="0-1000000">0->1.000.000</option>
+                                                                    <option value="1000000-2000000">1.000.000->2.000.000</option>
+                                                                    <option value="2000000-3000000">2.000.000->3.000.000</option>
+                                                                    <option value="3000000-4000000">3.000.000->4.000.000</option>
+                                                                    <option value="4000000-5000000">4.000.000->5.000.000</option>
+                                                                    <option value="5000000-6000000">5.000.000->6.000.000</option>
+                                                                    <option value="6000000-7000000">6.000.000->7.000.000</option>
+                                                                    <option value="7000000-8000000">7.000.000->8.000.000</option>
+                                                                    <option value="8000000-9000000">8.000.000->9.000.000</option>
+                                                                    <option value="9000000-10000000">9.000.000->10.000.000</option>
+                                                                    <option value="10000000-11000000">10.000.000->11.000.000</option>
+                                                                    <option value="11000000-12000000">11.000.000->12.000.000</option>
+                                                                    <option value="12000000-13000000">12.000.000->13.000.000</option>
+                                                                    <option value="13000000-14000000">13.000.000->14.000.000</option>
+                                                                    <option value="14000000-15000000">14.000.000->15.000.000</option>
+                                                                    <option value="15000000-100000000"> Trên 15.000.000</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md d-flex">
+                                                    <div class="form-group d-flex w-100 border-0">
+                                                        <div class="form-field w-100 align-items-center d-flex">
+                                                            <input type="submit" value="Tìm kiếm" class="align-self-stretch form-control btn btn-primary">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
+                                        <form action="#" class="search-property-1">
+                                            <div class="row no-gutters">
+                                                <div class="col-lg d-flex">
+                                                    <div class="form-group p-4 border-0">
+                                                        <label for="#">Khách sạn</label>
+                                                        <div class="form-field">
+                                                            <div class="icon"><span class="fa fa-search"></span></div>
+                                                            <input type="text" class="form-control" placeholder="Tên khách sạn">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg d-flex">
+                                                    <div class="form-group p-4">
+                                                        <label for="#">Địa điểm</label>
                                                         <div class="form-field">
                                                             <div class="select-wrap">
                                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
@@ -93,50 +144,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group d-flex w-100 border-0">
-                                                        <div class="form-field w-100 align-items-center d-flex">
-                                                            <input type="submit" value="Search" class="align-self-stretch form-control btn btn-primary">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
-                                        <form action="#" class="search-property-1">
-                                            <div class="row no-gutters">
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4 border-0">
-                                                        <label for="#">Destination</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control" placeholder="Search place">
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="col-lg d-flex">
                                                     <div class="form-group p-4">
-                                                        <label for="#">Check-in date</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-calendar"></span></div>
-                                                            <input type="text" class="form-control checkin_date" placeholder="Check In Date">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Check-out date</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-calendar"></span></div>
-                                                            <input type="text" class="form-control checkout_date" placeholder="Check Out Date">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Price Limit</label>
+                                                        <label for="#">Khoảng giá</label>
                                                         <div class="form-field">
                                                             <div class="select-wrap">
                                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
@@ -239,8 +249,8 @@
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">Pacific Provide Places</span>
-                    <h2 class="mb-4">Select Your Destination</h2>
+                    <span class="subheading">Danh sách</span>
+                    <h2 class="mb-4">Địa điểm du lịch</h2>
                 </div>
             </div>
         </div>
@@ -248,56 +258,20 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="carousel-destination owl-carousel ftco-animate">
-                        <div class="item">
-                            <div class="project-destination">
-                                <a href="#" class="img" style="background-image: url({{ asset('page/images/place-1.jpg') }});">
-                                    <div class="text">
-                                        <h3>Philippines</h3>
-                                        <span>8 Tours</span>
+                        @if ($locations->count() > 0)
+                            @foreach($locations as $location)
+                                <div class="item">
+                                    <div class="project-destination">
+                                        <a href="#" class="img" style="background-image: url({{ asset('page/images/place-1.jpg') }});">
+                                            <div class="text">
+                                                <h3>{{ $location->l_name }}</h3>
+                                                <span>{{ $location->tours ? $location->tours->count() : 0 }} Tours</span>
+                                            </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="project-destination">
-                                <a href="#" class="img" style="background-image: url({{ asset('page/images/place-2.jpg') }});">
-                                    <div class="text">
-                                        <h3>Canada</h3>
-                                        <span>2 Tours</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="project-destination">
-                                <a href="#" class="img" style="background-image: url({{ asset('page/images/place-3.jpg') }});">
-                                    <div class="text">
-                                        <h3>Thailand</h3>
-                                        <span>5 Tours</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="project-destination">
-                                <a href="#" class="img" style="background-image: url({{ asset('page/images/place-4.jpg') }});">
-                                    <div class="text">
-                                        <h3>Autralia</h3>
-                                        <span>5 Tours</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="project-destination">
-                                <a href="#" class="img" style="background-image: url({{ asset('page/images/place-5.jpg') }});">
-                                    <div class="text">
-                                        <h3>Greece</h3>
-                                        <span>7 Tours</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
@@ -308,114 +282,16 @@
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">Destination</span>
-                    <h2 class="mb-4">Tour Destination</h2>
+                    <span class="subheading">Danh Sách</span>
+                    <h2 class="mb-4">Tour Du Lịch Mới Nhất</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 ftco-animate">
-                    <div class="project-wrap">
-                        <a href="#" class="img" style="background-image: url({{ asset('page/images/destination-1.jpg') }});">
-                            <span class="price">$550/person</span>
-                        </a>
-                        <div class="text p-4">
-                            <span class="days">8 Days Tour</span>
-                            <h3><a href="#">Banaue Rice Terraces</a></h3>
-                            <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                            <ul>
-                                <li><span class="flaticon-shower"></span>2</li>
-                                <li><span class="flaticon-king-size"></span>3</li>
-                                <li><span class="flaticon-mountains"></span>Near Mountain</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ftco-animate">
-                    <div class="project-wrap">
-                        <a href="#" class="img" style="background-image: url({{ asset('page/images/destination-2.jpg') }});">
-                            <span class="price">$550/person</span>
-                        </a>
-                        <div class="text p-4">
-                            <span class="days">10 Days Tour</span>
-                            <h3><a href="#">Banaue Rice Terraces</a></h3>
-                            <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                            <ul>
-                                <li><span class="flaticon-shower"></span>2</li>
-                                <li><span class="flaticon-king-size"></span>3</li>
-                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ftco-animate">
-                    <div class="project-wrap">
-                        <a href="#" class="img" style="background-image: url({{ asset('page/images/destination-3.jpg') }});">
-                            <span class="price">$550/person</span>
-                        </a>
-                        <div class="text p-4">
-                            <span class="days">7 Days Tour</span>
-                            <h3><a href="#">Banaue Rice Terraces</a></h3>
-                            <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                            <ul>
-                                <li><span class="flaticon-shower"></span>2</li>
-                                <li><span class="flaticon-king-size"></span>3</li>
-                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 ftco-animate">
-                    <div class="project-wrap">
-                        <a href="#" class="img" style="background-image: url({{ asset('page/images/destination-4.jpg') }});">
-                            <span class="price">$550/person</span>
-                        </a>
-                        <div class="text p-4">
-                            <span class="days">8 Days Tour</span>
-                            <h3><a href="#">Banaue Rice Terraces</a></h3>
-                            <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                            <ul>
-                                <li><span class="flaticon-shower"></span>2</li>
-                                <li><span class="flaticon-king-size"></span>3</li>
-                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ftco-animate">
-                    <div class="project-wrap">
-                        <a href="#" class="img" style="background-image: url({{ asset('page/images/destination-5.jpg') }});">
-                            <span class="price">$550/person</span>
-                        </a>
-                        <div class="text p-4">
-                            <span class="days">10 Days Tour</span>
-                            <h3><a href="#">Banaue Rice Terraces</a></h3>
-                            <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                            <ul>
-                                <li><span class="flaticon-shower"></span>2</li>
-                                <li><span class="flaticon-king-size"></span>3</li>
-                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ftco-animate">
-                    <div class="project-wrap">
-                        <a href="#" class="img" style="background-image: url({{ asset('page/images/destination-6.jpg') }});">
-                            <span class="price">$550/person</span>
-                        </a>
-                        <div class="text p-4">
-                            <span class="days">7 Days Tour</span>
-                            <h3><a href="#">Banaue Rice Terraces</a></h3>
-                            <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                            <ul>
-                                <li><span class="flaticon-shower"></span>2</li>
-                                <li><span class="flaticon-king-size"></span>3</li>
-                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @if($tours->count() > 0)
+                    @foreach($tours as $tour)
+                        @include('page.common.itemTour', compact('tour'))
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>
@@ -585,71 +461,36 @@
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">Our Blog</span>
-                    <h2 class="mb-4">Recent Post</h2>
+                    <span class="subheading">Danh sách</span>
+                    <h2 class="mb-4">Bài Đăng Gần Đây</h2>
                 </div>
             </div>
             <div class="row d-flex">
-                <div class="col-md-4 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <a href="blog-single.html" class="block-20" style="background-image: url({{ asset('page/images/image_1.jpg') }});">
-                        </a>
-                        <div class="text">
-                            <div class="d-flex align-items-center mb-4 topp">
-                                <div class="one">
-                                    <span class="day">11</span>
-                                </div>
-                                <div class="two">
-                                    <span class="yr">2020</span>
-                                    <span class="mos">September</span>
-                                </div>
-                            </div>
-                            <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-                            <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p> -->
-                            <p><a href="#" class="btn btn-primary">Read more</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <a href="blog-single.html" class="block-20" style="background-image: url({{ asset('page/images/image_2.jpg') }});">
-                        </a>
-                        <div class="text">
-                            <div class="d-flex align-items-center mb-4 topp">
-                                <div class="one">
-                                    <span class="day">11</span>
-                                </div>
-                                <div class="two">
-                                    <span class="yr">2020</span>
-                                    <span class="mos">September</span>
+                @if ($articles->count() > 0)
+                    @foreach($articles as $article)
+                        <div class="col-md-4 d-flex ftco-animate">
+                            <div class="blog-entry justify-content-end">
+                                <a href="{{ route('articles.detail', ['id' => $article->id, 'slug' => safeTitle($article->a_title)]) }}"
+                                   class="block-20" style="background-image: url({{ $article->a_avatar ? asset(pare_url_file($article->a_avatar)) : asset('admin/dist/img/no-image.png') }});">
+                                </a>
+                                <div class="text">
+                                    <div class="d-flex align-items-center mb-4 topp">
+                                        <div class="one">
+                                            <span class="day">{{ date('d', strtotime($article->created_at)) }}</span>
+                                        </div>
+                                        <div class="two">
+                                            <span class="yr">{{ date('Y', strtotime($article->created_at)) }}</span>
+                                            <span class="mos">{{ date('M', strtotime($article->created_at)) }}{{ date('M', strtotime($article->created_at)) }}</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="heading" title="{{ $article->a_title }}"><a href="{{ route('articles.detail', ['id' => $article->id, 'slug' => safeTitle($article->a_title)]) }}">{{ the_excerpt($article->a_title, 75) }}</a></h3>
+                                    <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p> -->
+                                    <p><a href="{{ route('articles.detail', ['id' => $article->id, 'slug' => safeTitle($article->a_title)]) }}" class="btn btn-primary">Xem thêm</a></p>
                                 </div>
                             </div>
-                            <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-                            <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p> -->
-                            <p><a href="#" class="btn btn-primary">Read more</a></p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex ftco-animate">
-                    <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20" style="background-image: url({{ asset('page/images/image_3.jpg') }});">
-                        </a>
-                        <div class="text">
-                            <div class="d-flex align-items-center mb-4 topp">
-                                <div class="one">
-                                    <span class="day">11</span>
-                                </div>
-                                <div class="two">
-                                    <span class="yr">2020</span>
-                                    <span class="mos">September</span>
-                                </div>
-                            </div>
-                            <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-                            <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p> -->
-                            <p><a href="#" class="btn btn-primary">Read more</a></p>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

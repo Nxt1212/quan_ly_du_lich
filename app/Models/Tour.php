@@ -33,12 +33,14 @@ class Tour extends Model
         't_image',
         't_location_id',
         't_user_id',
+        't_number_registered',
         't_status',
     ];
 
     const STATUS = [
-        1 => 'Hiển thị',
-        2 => 'Ẩn'
+        1 => 'Khởi tạo',
+        2 => 'Đang diễn ra',
+        3 => 'Đã hoàn tất'
     ];
 
     public function createOrUpdate($request , $id ='')
@@ -51,7 +53,8 @@ class Tour extends Model
                 $params['t_image'] = $image['name'];
         }
 
-        $params['t_user_id'] = Auth::guard('admins')->user()->id;
+        $params['t_user_id'] = Auth::user()->id;
+        $params['t_sale'] = $request->t_sale ? $request->t_sale : 0;
         if ($id) {
             return $this->find($id)->update($params);
         }
@@ -60,6 +63,11 @@ class Tour extends Model
 
     public function location ()
     {
-        return $this->belongsTo(Location::class, 't_location_id', 'id');
+        return $this->belongsTo(Location::class, 't_location_id', 'id')->where('l_status', 1);
+    }
+
+    public function user ()
+    {
+        return $this->belongsTo(User::class, 't_user_id', 'id');
     }
 }

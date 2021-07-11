@@ -45,7 +45,7 @@ class LoginController extends Controller
 
     public function login()
     {
-        if (\Auth::guard('admins')->check()) {
+        if (\Auth::check()) {
             return redirect()->back();
         }
 
@@ -67,7 +67,7 @@ class LoginController extends Controller
             return redirect()->back()->with('danger', 'Thông tin tài khoản không tồn tại');
         }
 
-        if (Auth::guard('admins')->attempt($data)) {
+        if (Auth::attempt($data)) {
             return redirect()->route('admin.home');
         }
         return redirect()->back()->with('danger', 'Đăng nhập thất bại.');
@@ -75,7 +75,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        Auth::guard('admins')->logout();
+        Auth::logout();
         return redirect()->route('admin.login');
     }
 }

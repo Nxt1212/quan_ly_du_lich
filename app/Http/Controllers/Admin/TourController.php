@@ -21,7 +21,7 @@ class TourController extends Controller
         view()->share([
             'tour_active' => 'active',
             'status' => $tour::STATUS,
-            'locations' => $location->get()
+            'locations' => $location->where('l_status', 1)->get()
         ]);
         $this->tour = $tour;
     }

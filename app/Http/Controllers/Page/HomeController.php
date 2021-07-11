@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Page;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Product;
-use App\Models\Trademark;
-use App\Models\Slide;
-use App\Models\Event;
+use App\Models\Location;
+use App\Models\Tour;
 use App\Models\Article;
 
 class HomeController extends Controller
@@ -15,7 +13,15 @@ class HomeController extends Controller
     //
     public function index()
     {
-        return view('page.home.index');
+        $locations = Location::with('tours')->active()->get();
+        $articles = Article::orderBy('id')->limit(NUMBER_PAGINATION_PAGE)->get();
+        $tours = Tour::orderBy('id')->limit(NUMBER_PAGINATION_PAGE)->get();
+        $viewData = [
+            'locations' => $locations,
+            'articles' => $articles,
+            'tours' => $tours
+        ];
+        return view('page.home.index', $viewData);
     }
 
     public function contact()

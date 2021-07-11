@@ -37,10 +37,20 @@ class Location extends Model
                 $params['l_image'] = $image['name'];
         }
         $params['l_slug'] = Str::slug($request->l_name);
-        $params['l_user_id'] = Auth::guard('admins')->user()->id;
+        $params['l_user_id'] = Auth::user()->id;
         if ($id) {
             return $this->find($id)->update($params);
         }
         return $this->create($params);
+    }
+
+    public function tours()
+    {
+        return $this->hasMany(Tour::class, 't_location_id', 'id')->where('t_status', 1);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('l_status', 1);
     }
 }

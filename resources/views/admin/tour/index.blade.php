@@ -36,11 +36,8 @@
                                         <th width="4%" class=" text-center">STT</th>
                                         <th>Tiêu đề</th>
                                         <th>Hình ảnh</th>
-                                        <th>Hành trình</th>
-                                        <th>Lịch trình</th>
-                                        <th>Số người</th>
-                                        <th>Giá/người</th>
-                                        <th class="text-center">Địa điểm</th>
+                                        <th>Lich trình / Giá</th>
+                                        <th>Thông tin / Địa điểm</th>
                                         <th class="text-center">Trạng thái</th>
                                         <th class="text-center">Hành động</th>
                                     </tr>
@@ -63,22 +60,19 @@
                                                     @endif
                                                 </td>
                                                 <td style="vertical-align: middle; width: 20%" class="title-content">
-                                                    <p>{{ $tour->t_journeys }}</p>
+                                                    <p><b>Hành trình:</b> {{ $tour->t_journeys }}</p>
+                                                    <p><b>Lịch trình :</b> {{ $tour->t_schedule }}</p>
+                                                    <p><b>Số người :</b> {{ $tour->t_number_guests }}</p>
+                                                    <p><b>Đã đăng ký :</b> {{ $tour->t_number_registered }}</p>
+                                                    <p><b>Giá người lớn :</b> {{ number_format($tour->t_price_adults,0,',','.') }} vnd</p>
+                                                    <p><b>Giá trẻ em :</b> {{ number_format($tour->t_price_adults,0,',','.') }} vnd</p>
                                                 </td>
-                                                <td style="vertical-align: middle; width: 20%" class="title-content">
-                                                    <p>{{ $tour->t_schedule }}</p>
-                                                </td>
-                                                <td class=" text-center" style="vertical-align: middle;">
-                                                    {{ $tour->t_number_guests }}
-                                                </td>
-                                                <td class=" text-center" style="vertical-align: middle;">
-                                                    <p>Người lớn</p>
-                                                    <p>{{ number_format($tour->t_price_adults) }} vdn</p>
-                                                    <p>Trẻ em </p>
-                                                    <p>{{ number_format($tour->t_price_children) }} vdn</p>
-                                                </td>
-                                                <td class=" text-center" style="vertical-align: middle;">
-                                                    {{ isset($tour->location) ? $tour->location->l_name : '' }}
+                                                <td style="vertical-align: middle;">
+                                                    <p><b>Địa điểm :</b> {{ isset($tour->location) ? $tour->location->l_name : '' }}</p>
+                                                    <p><b>Di chuyển :</b> {{ $tour->t_move_method }}</p>
+                                                    <p><b>Điểm xuất phát :</b> {{ $tour->t_starting_gate }}</p>
+                                                    <p><b>Ngày đi :</b> {{ $tour->t_start_date }}</p>
+                                                    <p><b>Ngày về :</b> {{ $tour->t_end_date }}</p>
                                                 </td>
                                                 <td class=" text-center" style="vertical-align: middle;">{{ $status[$tour->t_status] }}</td>
                                                 <td class="text-center" style="vertical-align: middle;">

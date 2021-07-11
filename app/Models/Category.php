@@ -21,28 +21,9 @@ class Category extends Model
          2 => 'Ẩn'
      ];
 
-     const SORT_BY = [
-        'id-desc' => "Mới đến cũ",
-        'id-asc' => "Cũ đến mới",
-        'price-desc' => "Giá từ cao đến thấp ",
-        'price-asc' => "Giá từ thấp đến cao"
-     ];
-    const SORT_PRICE = [
-        'all' => "Tất cả",
-        '0-100000' => "Dưới 100.000đ",
-        '100000-500000' => "100.000đ -> 500.000đ",
-        '500000-1000000' => "500.000đ -> 1.000.000đ",
-        '1000000-1500000' => "1.000.000đ -> 1.500.000đ",
-        '2000000-2500000' => "2.000.000đ -> 2.500.000đ",
-        '3000000-max' => 'Trên 3.000.000đ'
-    ];
 
     protected $fillable = ['c_name', 'c_parent_id', 'c_slug', 'c_avatar', 'c_banner', 'c_description', 'c_hot', 'c_status', 'c_type'];
 
-    public function products()
-    {
-        return $this->hasMany(Product::class, 'pro_category_id', 'id');
-    }
 
     public function children()
     {
@@ -60,7 +41,7 @@ class Category extends Model
 
     public function news()
     {
-        return $this->hasMany(Article::class, 'a_category_id', 'id');
+        return $this->hasMany(Article::class, 'a_category_id', 'id')->where('a_active', 1);
     }
 
     /**
@@ -77,7 +58,7 @@ class Category extends Model
                 $params['c_banner'] = $image['name'];
         }
         $params['c_slug'] = Str::slug($request->c_name);
-        $params['c_user_id'] = Auth::guard('admins')->user()->id;
+        $params['c_user_id'] = Auth::user()->id;
         if ($id) {
            return $this->find($id)->update($params);
         }

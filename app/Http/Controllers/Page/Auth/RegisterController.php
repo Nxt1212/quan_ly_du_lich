@@ -53,8 +53,7 @@ class RegisterController extends Controller
             $user->phone = $request->phone;
             $user->password = bcrypt($request->r_password);
             $user->save();
-            Auth::loginUsingId($user->id, true);
-
+            Auth::guard('users')->loginUsingId($user->id, true);
             \DB::commit();
             return redirect()->route('page.home');
         } catch (\Exception $exception) {

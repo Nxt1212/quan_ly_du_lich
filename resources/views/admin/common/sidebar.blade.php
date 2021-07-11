@@ -12,7 +12,7 @@
     <div class="sidebar">
         <!-- Sidebar user (optional) -->
         @php
-            $user = Auth::guard('admins')->user();
+            $user = Auth::user();
         @endphp
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
@@ -55,7 +55,13 @@
                 <li class="nav-item">
                     <a href="{{ route('tour.index') }}" class="nav-link {{ isset($tour_active) ? $tour_active : '' }}">
                         <i class="nav-icon fas fa-th-large" aria-hidden="true"></i>
-                        <p> Danh sách tour</p>
+                        <p>Tours</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('hotel.index') }}" class="nav-link {{ isset($hotel_active) ? $hotel_active : '' }}">
+                        <i class="nav-icon fas fa-bed" aria-hidden="true"></i>
+                        <p>Khách sạn</p>
                     </a>
                 </li>
                 {{--<li class="nav-item">--}}

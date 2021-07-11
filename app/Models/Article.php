@@ -53,7 +53,7 @@ class Article extends Model
                 $params['a_avatar'] = $image['name'];
         }
         $params['a_slug'] = Str::slug($request->a_name);
-        $params['a_user_id'] = Auth::guard('admins')->user()->id;
+        $params['a_user_id'] = Auth::user()->id;
         if ($id) {
             return $this->find($id)->update($params);
         }

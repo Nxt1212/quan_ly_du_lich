@@ -31,7 +31,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
         Route::get('/forgot/password', 'ForgotPasswordController@forgotPassword')->name('admin.forgot.password');
     });
 
-    Route::group(['middleware' =>['admins']], function() {
+    Route::group(['middleware' =>['auth']], function() {
         Route::get('/home', 'HomeController@index')->name('admin.home');
 
         Route::group(['prefix' => 'group-permission'], function(){
@@ -120,17 +120,28 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
 
             Route::get('/delete/{id}','TourController@delete')->name('tour.delete');
         });
+
+        Route::group(['prefix' => 'hotel'], function(){
+            Route::get('/','HotelController@index')->name('hotel.index');
+            Route::get('/create','HotelController@create')->name('hotel.create');
+            Route::post('/create','HotelController@store');
+
+            Route::get('/update/{id}','HotelController@edit')->name('hotel.update');
+            Route::post('/update/{id}','HotelController@update');
+
+            Route::get('/delete/{id}','HotelController@delete')->name('hotel.delete');
+        });
     });
 });
 
 Route::group(['namespace' => 'Page'], function() {
 
     Route::group(['namespace' => 'Auth'], function() {
-        Route::get('/user/account', 'LoginController@login')->name('page.user.account');
+        Route::get('/dang-nhap.html', 'LoginController@login')->name('page.user.account');
         Route::post('/account/login', 'LoginController@postLogin')->name('account.login');
-        Route::post('/register/account', 'RegisterController@postRegister')->name('account.register');
-        Route::get('/logout', 'LoginController@logout')->name('page.user.logout');
-        Route::get('/forgot/password', 'ForgotPasswordController@forgotPassword')->name('page.user.forgot.password');
+        Route::post('/dang-ky-tai-khoan.html', 'RegisterController@postRegister')->name('account.register');
+        Route::get('/dang-xuat.html', 'LoginController@logout')->name('page.user.logout');
+        Route::get('/quen-mat-khau.html', 'ForgotPasswordController@forgotPassword')->name('page.user.forgot.password');
     });
 
     Route::group(['middleware' =>['users']], function() {
@@ -143,6 +154,9 @@ Route::group(['namespace' => 'Page'], function() {
     });
 
     Route::get('/', 'HomeController@index')->name('page.home');
-
+    Route::get('/tin-tuc.html', 'ArticleController@index')->name('articles.index');
+    Route::get('/tin-tuc/{id}/{slug}.html', 'ArticleController@detail')->name('articles.detail');
+    Route::get('/ve-chung-toi.html', 'HomeController@about')->name('about.us');
+    Route::get('/tour.html', 'TourController@index')->name('tour');
 });
 

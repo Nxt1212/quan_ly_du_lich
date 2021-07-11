@@ -47,7 +47,7 @@
                                             <tr>
                                                 <td class="text-center" style="vertical-align: middle;">{{ $i }}</td>
                                                 <td class="title-content" style="vertical-align: middle;width: 30% ">
-                                                    <p>{{ $location->l_name }}</p>
+                                                    {{ $location->l_name }}
                                                 </td>
                                                 <td style="vertical-align: middle; width:20%;">
                                                     @if(isset($location) && !empty($location->l_image))

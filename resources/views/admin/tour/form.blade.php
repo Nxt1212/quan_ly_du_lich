@@ -62,7 +62,7 @@
                                 <div class="form-group">
                                     <div class="form-group">
                                         <label>Giảm giá </label>
-                                        <input type="text" class="form-control"  placeholder="" name="t_sale" value="{{ old('t_sale',isset($tour) ? $tour->t_sale : '') }}">
+                                        <input type="number" max="100" class="form-control"  placeholder="" name="t_sale" value="{{ old('t_sale',isset($tour) ? $tour->t_sale : '') }}">
                                         <span class="text-danger"><p class="mg-t-5">{{ $errors->first('t_sale') }}</p></span>
                                     </div>
                                 </div>
@@ -80,9 +80,28 @@
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <div class="form-group">
-                                        <label>Giá trẻ em <sup class="text-danger"></sup></label>
-                                        <input type="text" class="form-control"  placeholder="" name="t_price_children" value="{{ old('t_price_children',isset($tour) ? $tour->t_price_children : '') }}">
+                                        <label>Giá trẻ em <sup class="text-danger">(*)</sup></label>
+                                        <input type="number" class="form-control"  placeholder="" name="t_price_children" value="{{ old('t_price_children',isset($tour) ? $tour->t_price_children : '') }}">
                                         <span class="text-danger"><p class="mg-t-5">{{ $errors->first('t_price_children') }}</p></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Phương tiện di chuyển</label>
+                                    <input type="text" class="form-control"  placeholder="" name="t_move_method" value="{{ old('t_move_method',isset($tour) ? $tour->t_move_method : '') }}">
+                                    <span class="text-danger"><p class="mg-t-5">{{ $errors->first('t_move_method') }}</p></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label>Địa điểm xuất phát</label>
+                                        <input type="text" class="form-control"  placeholder="" name="t_starting_gate" value="{{ old('t_starting_gate',isset($tour) ? $tour->t_starting_gate : '') }}">
+                                        <span class="text-danger"><p class="mg-t-5">{{ $errors->first('t_starting_gate') }}</p></span>
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +158,7 @@
                     </div>
                     <div class="card-body">
                         <div class="btn-set">
-                            <button type="submit" name="submit" class="btn btn-info">
+                            <button type="submit" name="submit" value="{{ isset($tour) ? 'update' : 'create' }}" class="btn btn-info">
                                 <i class="fa fa-save"></i> Lưu dữ liệu
                             </button>
                             <button type="reset" name="reset" value="reset" class="btn btn-danger">
@@ -152,7 +171,7 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Ngày bắt đầu </label>
+                            <label>Ngày bắt đầu <sup class="text-danger">(*)</sup></label>
                             <input type="date" class="form-control" name="t_start_date" value="{{ old('t_start_date', isset($tour) ? $tour->t_start_date : '') }}">
                             @if ($errors->first('t_start_date'))
                                 <span class="text-danger">{{ $errors->first('t_start_date') }}</span>
@@ -160,7 +179,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Ngày kết thúc</label>
+                            <label>Ngày kết thúc <sup class="text-danger">(*)</sup></label>
                             <input type="date" class="form-control" name="t_end_date" value="{{ old('t_end_date', isset($tour) ? $tour->t_end_date : '') }}">
                             @if ($errors->first('t_end_date'))
                                 <span class="text-danger">{{ $errors->first('t_end_date') }}</span>

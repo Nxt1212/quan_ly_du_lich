@@ -44,7 +44,7 @@ class LoginController extends Controller
 
     public function login()
     {
-        if (\Auth::check()) {
+        if (Auth::guard('users')->check()) {
             return redirect()->back();
         }
 
@@ -60,7 +60,7 @@ class LoginController extends Controller
             return redirect()->back()->with('danger', 'Thông tin tài khoản không tồn tại');
         }
 
-        if (Auth::attempt($data)) {
+        if (Auth::guard('users')->attempt($data)) {
             return redirect()->route('page.home');
         }
         return redirect()->back()->with('danger', 'Đăng nhập thất bại.');
@@ -68,7 +68,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        Auth::logout();
+        Auth::guard('users')->logout();
         return redirect()->route('page.home');
     }
 }
