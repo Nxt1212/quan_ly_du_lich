@@ -12,7 +12,11 @@ class ArticleController extends Controller
     //
     public function index(Request $request)
     {
-        $articles = Article::orderByDesc('id')->paginate(NUMBER_PAGINATION_PAGE);
+        $articles = Article::active();
+        if ($request->key_search) {
+            $articles->where('a_title', 'like', '%'.$request->key_search.'%');
+        }
+        $articles = $articles->orderByDesc('id')->paginate(NUMBER_PAGINATION_PAGE);
         return view('page.articles.index', compact('articles'));
     }
 
@@ -20,7 +24,8 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
         $categories = Category::with('news')->get();
+        $articles = Article::with('user')->active()->orderByDesc('id')->limit(NUMBER_PAGINATION_PAGE)->get();
 
-        return view('page.articles.detail', compact('article', 'categories'));
+        return view('page.articles.detail', compact('article', 'categories', 'articles'));
     }
 }

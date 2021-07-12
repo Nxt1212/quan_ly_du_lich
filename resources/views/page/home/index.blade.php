@@ -468,27 +468,7 @@
             <div class="row d-flex">
                 @if ($articles->count() > 0)
                     @foreach($articles as $article)
-                        <div class="col-md-4 d-flex ftco-animate">
-                            <div class="blog-entry justify-content-end">
-                                <a href="{{ route('articles.detail', ['id' => $article->id, 'slug' => safeTitle($article->a_title)]) }}"
-                                   class="block-20" style="background-image: url({{ $article->a_avatar ? asset(pare_url_file($article->a_avatar)) : asset('admin/dist/img/no-image.png') }});">
-                                </a>
-                                <div class="text">
-                                    <div class="d-flex align-items-center mb-4 topp">
-                                        <div class="one">
-                                            <span class="day">{{ date('d', strtotime($article->created_at)) }}</span>
-                                        </div>
-                                        <div class="two">
-                                            <span class="yr">{{ date('Y', strtotime($article->created_at)) }}</span>
-                                            <span class="mos">{{ date('M', strtotime($article->created_at)) }}{{ date('M', strtotime($article->created_at)) }}</span>
-                                        </div>
-                                    </div>
-                                    <h3 class="heading" title="{{ $article->a_title }}"><a href="{{ route('articles.detail', ['id' => $article->id, 'slug' => safeTitle($article->a_title)]) }}">{{ the_excerpt($article->a_title, 75) }}</a></h3>
-                                    <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p> -->
-                                    <p><a href="{{ route('articles.detail', ['id' => $article->id, 'slug' => safeTitle($article->a_title)]) }}" class="btn btn-primary">Xem thêm</a></p>
-                                </div>
-                            </div>
-                        </div>
+                        @include('page.common.itemArticle', compact('article'))
                     @endforeach
                 @endif
             </div>

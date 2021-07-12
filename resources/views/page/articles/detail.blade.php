@@ -25,6 +25,7 @@
                         <p>
                             {!! $article->a_description !!}
                         </p>
+                        <img src="{{ $article->a_avatar ? asset(pare_url_file($article->a_avatar)) : asset('admin/dist/img/no-image.png') }}" alt="" class="img-fluid">
                     </div>
                     <div class="content">
                         <p>
@@ -152,10 +153,10 @@
                 </div> <!-- .col-md-8 -->
                 <div class="col-lg-4 sidebar ftco-animate bg-light py-md-5 fadeInUp ftco-animated">
                     <div class="sidebar-box pt-md-5">
-                        <form action="#" class="search-form">
+                        <form action="{{ route('articles.index') }}" class="search-form">
                             <div class="form-group">
                                 <span class="icon fa fa-search"></span>
-                                <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                                <input type="text" name="key_search" class="form-control" placeholder="Tìm kiếm...">
                             </div>
                         </form>
                     </div>
@@ -169,40 +170,31 @@
                     </div>
 
                     <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
-                        <h3>Recent Blog</h3>
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="fa fa-calendar"></span> September 11, 2020</a></div>
-                                    <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
-                                    <div><a href="#"><span class="fa fa-comment"></span> 19</a></div>
+                        <h3>Bài viết mới</h3>
+                        @if ($articles->count() > 0)
+                            @foreach($articles as $article)
+                                <div class="block-21 mb-4 d-flex">
+                                    <a class="blog-img mr-4" style="background-image: url({{ $article->a_avatar ? asset(pare_url_file($article->a_avatar)) : asset('admin/dist/img/no-image.png') }}););"></a>
+                                    <div class="text">
+                                        <h3 class="heading">
+                                            <a href="{{ route('articles.detail', ['id' => $article->id, 'slug' => safeTitle($article->a_title)]) }}">
+                                                {{ the_excerpt($article->a_title, 100) }}
+                                            </a>
+                                        </h3>
+                                        <div class="meta">
+                                            <div>
+                                                <a href="#">
+                                                    <span class="fa fa-calendar"></span>
+                                                    {{ date('M', strtotime($article->created_at)) }} {{ date('d', strtotime($article->created_at)) }}, {{ date('Y', strtotime($article->created_at)) }}
+                                                </a>
+                                            </div>
+                                            <div><a href="#"><span class="fa fa-user"></span> {{ $article->user ? $article->user->name : '' }}</a></div>
+                                            {{--<div><a href="#"><span class="fa fa-comment"></span> 19</a></div>--}}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="fa fa-calendar"></span> September 11, 2020</a></div>
-                                    <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
-                                    <div><a href="#"><span class="fa fa-comment"></span> 19</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="fa fa-calendar"></span> September 11, 2020</a></div>
-                                    <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
-                                    <div><a href="#"><span class="fa fa-comment"></span> 19</a></div>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        @endif
                     </div>
 
                     {{--<div class="sidebar-box ftco-animate fadeInUp ftco-animated">--}}
@@ -219,10 +211,10 @@
                         {{--</div>--}}
                     {{--</div>--}}
 
-                    <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
-                        <h3>Paragraph</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-                    </div>
+                    {{--<div class="sidebar-box ftco-animate fadeInUp ftco-animated">--}}
+                        {{--<h3>Paragraph</h3>--}}
+                        {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>--}}
+                    {{--</div>--}}
                 </div>
 
             </div>

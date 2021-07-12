@@ -59,4 +59,9 @@ class Article extends Model
         }
         return $this->create($params);
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('a_active', 1);
+    }
 }

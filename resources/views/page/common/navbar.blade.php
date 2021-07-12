@@ -9,7 +9,7 @@
                 <li class="nav-item {{ request()->is('/') ? 'active' : ''}}"><a href="{{ route('page.home') }}" class="nav-link">Trang chủ</a></li>
                 <li class="nav-item {{ request()->is('ve-chung-toi.html') ? 'active' : '' }}"><a href="{{ route('about.us') }}" class="nav-link">Giới thiệu</a></li>
                 <li class="nav-item {{ request()->is('tour.html') ? 'active' : '' }}"><a href="{{ route('tour') }}" class="nav-link">Tours</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Khách sạn</a></li>
+                <li class="nav-item {{ request()->is('khach-san.html') ? 'active' : '' }}"><a href="{{ route('hotel') }}" class="nav-link">Khách sạn</a></li>
                 <li class="nav-item {{ request()->is('tin-tuc.html') || request()->is('tin-tuc/*')  ? 'active' : '' }}"><a href="{{ route('articles.index') }}" class="nav-link">Tin tức </a></li>
                 <li class="nav-item"><a href="" class="nav-link">Liên hệ</a></li>
                 <li class="nav-item"><a href="" class="nav-link">Đăng ký</a></li>

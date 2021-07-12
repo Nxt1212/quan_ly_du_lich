@@ -158,5 +158,6 @@ Route::group(['namespace' => 'Page'], function() {
     Route::get('/tin-tuc/{id}/{slug}.html', 'ArticleController@detail')->name('articles.detail');
     Route::get('/ve-chung-toi.html', 'HomeController@about')->name('about.us');
     Route::get('/tour.html', 'TourController@index')->name('tour');
+    Route::get('/khach-san.html', 'HotelController@index')->name('hotel');
 });
 

@@ -66,7 +66,7 @@ class Tour extends Model
         return $this->belongsTo(Location::class, 't_location_id', 'id')->where('l_status', 1);
     }
 
-    public function user ()
+    public function user()
     {
         return $this->belongsTo(User::class, 't_user_id', 'id');
     }

@@ -61,4 +61,9 @@ class Hotel extends Model
         }
         return $this->create($params);
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('h_status', 1);
+    }
 }
