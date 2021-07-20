@@ -170,7 +170,7 @@ $(function () {
         });
     })
 
-    $('.update_transaction').click(function () {
+    $('.update_book_tour').click(function () {
         var url = $(this).attr('url');
         location.href = url;
     })

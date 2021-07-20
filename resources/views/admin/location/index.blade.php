@@ -16,6 +16,36 @@
     </section>
     <!-- Main content -->
     <section class="content">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="card card-default">
+                    <div class="card-header card-header-border-bottom">
+                        <h3 class="card-title">From tìm kiếm</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" name="l_name" class="form-control mg-r-15" placeholder="Tên địa điểm">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-success " style="margin-right: 10px"><i class="fas fa-search"></i> Tìm kiếm </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div class="container-fluid">
 
             <div class="row">

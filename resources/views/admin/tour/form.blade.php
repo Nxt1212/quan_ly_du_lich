@@ -124,7 +124,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->first('t_description') ? 'has-error' : '' }} ">
-                            <label for="inputEmail3" class="control-label default">Mô tả ngắn </label>
+                            <label for="inputEmail3" class="control-label default">Mô tả lịch trình </label>
                             <div>
                                 <textarea name="t_description" id="t_description" cols="30" rows="10" class="form-control" style="height: 225px;">{{ old('t_description', isset($tour) ? $tour->t_description : '') }}</textarea>
                                 <script>
@@ -136,7 +136,7 @@
                             </div>
                         </div>
                         <div class="form-group {{ $errors->first('t_content') ? 'has-error' : '' }} ">
-                            <label for="inputEmail3" class="control-label default">Nội dung tour </label>
+                            <label for="inputEmail3" class="control-label default">Giới thiệu tour </label>
                             <div>
                                 <textarea name="t_content" id="t_content" cols="30" rows="10" class="form-control" style="height: 225px;">{{ old('t_content', isset($tour) ? $tour->t_content : '') }}</textarea>
                                 <script>

@@ -28,7 +28,7 @@ class ChangePasswordRequest extends FormRequest
             //
             'c_password' => ['required', new ChangePassword],
             'password' => ['required'],
-            'password_confirm' => ['required', 'same:password']
+            'r_password' => ['required', 'same:password']
         ];
     }
 
@@ -37,8 +37,8 @@ class ChangePasswordRequest extends FormRequest
         return [
             'c_password.required' => 'Vui lòng nhập mật khẩu hiện tại',
             'password.required' => 'Vui lòng nhập vào mật khẩu mới',
-            'password_confirm.required' => 'Vui lòng nhập lại mật khẩu',
-            'password_confirm.same' => 'Mật khẩu không trùng khớp',
+            'r_password.required' => 'Vui lòng nhập lại mật khẩu',
+            'r_password.same' => 'Mật khẩu không trùng khớp',
 
         ];
     }

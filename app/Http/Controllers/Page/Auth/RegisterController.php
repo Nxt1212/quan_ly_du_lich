@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -40,7 +40,16 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //$this->middleware('guest');
+    }
+
+    public function register()
+    {
+        if (Auth::guard('users')->check()) {
+            return redirect()->back();
+        }
+
+        return view('page.auth.register');
     }
 
     public function postRegister(RegisterRequest $request)
@@ -49,9 +58,10 @@ class RegisterController extends Controller
         try {
             $user = new User();
             $user->name = $request->name;
-            $user->email = $request->r_email;
+            $user->email = $request->email ;
             $user->phone = $request->phone;
-            $user->password = bcrypt($request->r_password);
+            $user->address = $request->address;
+            $user->password = bcrypt($request->password);
             $user->save();
             Auth::guard('users')->loginUsingId($user->id, true);
             \DB::commit();

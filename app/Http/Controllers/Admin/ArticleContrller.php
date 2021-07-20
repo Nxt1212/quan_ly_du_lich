@@ -28,10 +28,20 @@ class ArticleContrller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $articles = Article::with('category')->orderByDesc('id')->paginate(NUMBER_PAGINATION);
+        $articles = Article::with('category');
+
+        if ($request->a_title) {
+            $articles->where('a_title', 'like', '%'.$request->a_title.'%');
+        }
+
+        if ($request->a_category_id) {
+            $articles->where('a_category_id', $request->a_category_id);
+        }
+
+        $articles = $articles->orderByDesc('id')->paginate(NUMBER_PAGINATION);
         return view('admin.article.index', compact('articles'));
     }
 

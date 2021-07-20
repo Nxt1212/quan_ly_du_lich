@@ -31,10 +31,25 @@ class TourController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $tours = Tour::with('location')->orderByDesc('id')->paginate(NUMBER_PAGINATION);
+        $tours = Tour::with('location');
+        if ($request->t_title) {
+            $tours->where('t_title', 'like', '%'.$request->t_title.'%');
+        }
+
+        if ($request->t_start_date) {
+            $startDate = date('Y-m-d', strtotime($request->t_start_date));
+            $tours->where('t_start_date', '>=', $startDate);
+        }
+
+        if ($request->t_end_date) {
+            $endDate = date('Y-m-d', strtotime($request->t_end_date));
+            $tours->where('t_end_date', '<=', $endDate);
+        }
+
+        $tours = $tours->orderByDesc('id')->paginate(NUMBER_PAGINATION);
         return view('admin.tour.index', compact('tours'));
     }
 

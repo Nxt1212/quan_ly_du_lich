@@ -19,8 +19,21 @@
 <script src="{{ asset('page/js/scrollax.min.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="{{ asset('page/js/google-map.js') }}"></script>
+<!-- toastr -->
+<script src="{!! asset('admin/plugins/toastr/toastr.min.js') !!}"></script>
 <script>
     $(function () {
+        toastr.options.closeButton = true;
+        @if(session('success'))
+        var message = "{{ session('success') }}";
+        toastr.success(message, {timeOut: 3000});
+        @endif
+        @if(session('error'))
+        var message = "{{ session('error') }}";
+        toastr.error(message, {timeOut: 3000});
+        @endif
+        setTimeout(function(){ toastr.clear() }, 3000);
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -29,3 +42,4 @@
     })
 </script>
 <script src="{{ asset('page/js/main.js') }}"></script>
+<script src="{{ asset('page/js/tour.js') }}"></script>

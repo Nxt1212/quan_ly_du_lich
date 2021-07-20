@@ -26,8 +26,9 @@ class UpdateInfoAccountRequest extends FormRequest
         return [
             //
             'name'  => 'required|max:191',
-            'email' => 'required|email|max:191',
+            'email' => 'required|email|max:191|unique:users,email,'.$this->id,
             'phone' => 'required',
+            'address' => 'required',
         ];
     }
 
@@ -39,6 +40,7 @@ class UpdateInfoAccountRequest extends FormRequest
             'email.unique' => 'Email đăng nhập không thể trùng lặp',
             'email.max' => 'Email vượt quá số ký tự cho phép',
             'phone.required' => 'Vui lòng nhập số điện thoại liên hệ',
+            'address.required' => 'Vui lòng nhập địa chỉ',
 
         ];
     }

@@ -186,7 +186,10 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 0.5rem;
+  color: #00000080;
+  font-size: 14px;
+}
 
 button {
   border-radius: 0; }
@@ -2652,7 +2655,7 @@ fieldset:disabled a.btn {
 
 .btn-sm, .btn-group-sm > .btn {
   padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
+  font-size: 12px !important;
   line-height: 1.5;
   border-radius: 0.2rem; }
 
@@ -8346,10 +8349,10 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   font-family: "Poppins", Arial, sans-serif;
   background: #fff;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   font-weight: 400;
-  color: #999999; }
+ }
   body.menu-show {
     overflow: hidden;
     position: fixed;
@@ -8762,7 +8765,7 @@ h1, h2, h3, h4, h5,
     display: block;
     width: 100%;
     height: inherit !important;
-    font-size: 16px;
+    font-size: 14px;
     border: none !important;
     color: rgba(0, 0, 0, 0.4) !important;
     background: transparent !important;
@@ -9117,8 +9120,7 @@ h1, h2, h3, h4, h5,
 .form-control {
   height: 52px !important;
   background: #fff !important;
-  color: #000000 !important;
-  font-size: 18px;
+  font-size: 14px;
   border-radius: 5px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important; }
@@ -10092,4 +10094,72 @@ textarea.form-control {
   margin-bottom: 0px;
   letter-spacing: 0.7px;
   font-size: 13px;
+}
+.register-tour {
+  background: #f9fafb !important;
+  width: 100%;
+  min-height: 140px;
+  text-align: center;
+}
+.price-tour {
+  padding-top: 15px;
+  font-size: 18px;
+}
+.related-tour {
+  margin-top: 15px;
+}
+.related-tour > h3 {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px 0px;
+}
+.item-related-tour {
+  margin-bottom: 30px;
+}
+.active-user > a {
+  color: #f15d30 !important;
+}
+.image-book {
+  margin: auto;
+  width: 50%;
+  height: 50%;
+}
+.title-book {
+  font-size: 17px;
+  color: #f15d30;
+}
+
+.phoneWrap {
+  max-width: 280px;
+  border: solid 1px #f15d30;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 50px;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 35px;
+}
+
+.phoneWrap:before {
+  content: "\f10b";
+  font-family: fontAwesome;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 50px;
+  line-height: 50px;
+}
+
+.phoneWrap .hotline {
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+.my-tour > tbody > tr > td > p {
+  margin-bottom: 4px;
 }

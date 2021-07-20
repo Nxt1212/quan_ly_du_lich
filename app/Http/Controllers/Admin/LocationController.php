@@ -28,10 +28,17 @@ class LocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $locations = Location::orderByDesc('id')->paginate(NUMBER_PAGINATION);
+        $locations = Location::select('*');
+
+        if ($request->l_name) {
+            $locations->where('l_name', 'like', '%'.$request->l_name.'%');
+        }
+
+        $locations = $locations->orderByDesc('id')->paginate(NUMBER_PAGINATION);
+
         return view('admin.location.index', compact('locations'));
     }
 

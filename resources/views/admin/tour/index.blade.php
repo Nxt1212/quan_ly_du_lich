@@ -17,7 +17,46 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="card card-default">
+                        <div class="card-header card-header-border-bottom">
+                            <h3 class="card-title">From tìm kiếm</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                        <div class="form-group">
+                                            <input type="text" name="t_title" class="form-control mg-r-15" placeholder="Tiêu đề tour">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-3">
+                                        <div class="form-group">
+                                            <input type="date" name="t_start_date" class="form-control mg-r-15">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-3">
+                                        <div class="form-group">
+                                            <input type="date" name="t_end_date" class="form-control mg-r-15">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-3">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-success " style="margin-right: 10px"><i class="fas fa-search"></i> Tìm kiếm </button>
+                                        </div>
+                                    </div>
 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -65,7 +104,7 @@
                                                     <p><b>Số người :</b> {{ $tour->t_number_guests }}</p>
                                                     <p><b>Đã đăng ký :</b> {{ $tour->t_number_registered }}</p>
                                                     <p><b>Giá người lớn :</b> {{ number_format($tour->t_price_adults,0,',','.') }} vnd</p>
-                                                    <p><b>Giá trẻ em :</b> {{ number_format($tour->t_price_adults,0,',','.') }} vnd</p>
+                                                    <p><b>Giá trẻ em :</b> {{ number_format($tour->t_price_children,0,',','.') }} vnd</p>
                                                 </td>
                                                 <td style="vertical-align: middle;">
                                                     <p><b>Địa điểm :</b> {{ isset($tour->location) ? $tour->location->l_name : '' }}</p>

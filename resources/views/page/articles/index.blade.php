@@ -14,6 +14,36 @@
             </div>
         </div>
     </section>
+    <section class="ftco-section ftco-no-pb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="search-wrap-1 ftco-animate fadeInUp ftco-animated">
+                        <form action="{{ route('articles.index') }}" class="search-property-1">
+                            <div class="row no-gutters">
+                                <div class="col-md-9">
+                                    <div class="form-group p-4 border-0">
+                                        <label for="#">Từ khóa tìm kiếm</label>
+                                        <div class="form-field">
+                                            <div class="icon"><span class="fa fa-search"></span></div>
+                                            <input type="text" name="key_search" class="form-control" placeholder="Từ khóa tìm kiếm">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 d-flex">
+                                    <div class="form-group d-flex w-100 border-0">
+                                        <div class="form-field w-100 align-items-center d-flex">
+                                            <input type="submit" value="Tìm kiếm" class="align-self-stretch form-control btn btn-primary">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="ftco-section">
         <div class="container">
             <div class="row d-flex">

@@ -48,10 +48,6 @@
                         <!-- /.col -->
                     </div>
                 </form>
-                <div class="social-auth-links text-center mb-3">
-                    {{--<p>Chưa có tài khoản? <a href="{{ route('admin.register') }}">Đăng ký</a> </p>--}}
-
-                </div>
             </div>
             <!-- /.login-card-body -->
         </div>

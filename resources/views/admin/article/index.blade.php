@@ -16,8 +16,59 @@
     </section>
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="card card-default">
+                    <div class="card-header card-header-border-bottom">
+                        <h3 class="card-title">From tìm kiếm</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <input type="text" name="a_title" class="form-control mg-r-15" placeholder="Tiêu đề bài viết">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <select class="custom-select" name="a_category_id">
+                                            <option value="">Chọn danh mục</option>
+                                            @foreach($categories as $category)
+                                                @if (isset($category->children) && count($category->children) > 0)
+                                                    <optgroup label="{{ $category->c_name }}">
+                                                        @foreach($category->children as $children)
+                                                            <option value="{{$children->id}}">
+                                                                {{$children->c_name}}
+                                                            </option>
+                                                        @endforeach
+                                                    </optgroup>
+                                                @else
+                                                    <option value="{{$category->id}}">
+                                                        {{$category->c_name}}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-success " style="margin-right: 10px"><i class="fas fa-search"></i> Tìm kiếm </button>
+                                    </div>
+                                </div>
 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card">

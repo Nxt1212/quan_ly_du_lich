@@ -9,3 +9,5 @@
 <link rel="stylesheet" href="{{ asset('page/css/jquery.timepicker.css') }}">
 <link rel="stylesheet" href="{{ asset('page/css/flaticon.css') }}">
 <link rel="stylesheet" href="{{ asset('page/css/style.css') }}">
+<!-- toastr -->
+<link rel="stylesheet" href="{!! asset('admin/plugins/toastr/toastr.min.css') !!}">

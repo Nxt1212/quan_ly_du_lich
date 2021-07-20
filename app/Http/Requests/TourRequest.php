@@ -60,6 +60,7 @@ class TourRequest extends FormRequest
             't_title.unique'            => 'Dữ liệu đã bị trùng',
             't_location_id.required'      => 'Dữ liệu không được phép để trống',
             't_price_adults.required'      => 'Dữ liệu không được phép để trống',
+            't_price_children.required'      => 'Dữ liệu không được phép để trống',
             't_journeys.required'      => 'Dữ liệu không được phép để trống',
             't_schedule.required'      => 'Dữ liệu không được phép để trống',
             't_start_date.required'            => 'Dữ liệu không được phép để trống',

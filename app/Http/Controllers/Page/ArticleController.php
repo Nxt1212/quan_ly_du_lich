@@ -23,6 +23,11 @@ class ArticleController extends Controller
     public function detail(Request $request, $id)
     {
         $article = Article::find($id);
+
+        if (!$article) {
+            return redirect()->back()->with('error', 'Dữ liệu không tồn tại');
+        }
+
         $categories = Category::with('news')->get();
         $articles = Article::with('user')->active()->orderByDesc('id')->limit(NUMBER_PAGINATION_PAGE)->get();
 

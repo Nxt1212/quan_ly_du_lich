@@ -35,150 +35,11 @@
                             </div>
                             <div class="col-md-12 tab-wrap">
                                 <div class="tab-content" id="v-pills-tabContent">
-
                                     <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
-                                        <form action="#" class="search-property-1">
-                                            <div class="row no-gutters">
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4 border-0">
-                                                        <label for="#">Tour</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" name="key_tour" class="form-control" placeholder="Tìm kiếm">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Ngày Khởi Hành</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-calendar"></span></div>
-                                                            <input type="text" class="form-control checkin_date" placeholder="Ngày Khởi Hành">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Ngày Trở Về</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-calendar"></span></div>
-                                                            <input type="text" class="form-control checkout_date" placeholder="Ngày Trở Về">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Khoảng giá</label>
-                                                        <div class="form-field">
-                                                            <div class="select-wrap">
-                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                                <select name="" id="" class="form-control">
-                                                                    <option value="">Chọn khoảng giá</option>
-                                                                    <option value="0-1000000">0->1.000.000</option>
-                                                                    <option value="1000000-2000000">1.000.000->2.000.000</option>
-                                                                    <option value="2000000-3000000">2.000.000->3.000.000</option>
-                                                                    <option value="3000000-4000000">3.000.000->4.000.000</option>
-                                                                    <option value="4000000-5000000">4.000.000->5.000.000</option>
-                                                                    <option value="5000000-6000000">5.000.000->6.000.000</option>
-                                                                    <option value="6000000-7000000">6.000.000->7.000.000</option>
-                                                                    <option value="7000000-8000000">7.000.000->8.000.000</option>
-                                                                    <option value="8000000-9000000">8.000.000->9.000.000</option>
-                                                                    <option value="9000000-10000000">9.000.000->10.000.000</option>
-                                                                    <option value="10000000-11000000">10.000.000->11.000.000</option>
-                                                                    <option value="11000000-12000000">11.000.000->12.000.000</option>
-                                                                    <option value="12000000-13000000">12.000.000->13.000.000</option>
-                                                                    <option value="13000000-14000000">13.000.000->14.000.000</option>
-                                                                    <option value="14000000-15000000">14.000.000->15.000.000</option>
-                                                                    <option value="15000000-100000000"> Trên 15.000.000</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group d-flex w-100 border-0">
-                                                        <div class="form-field w-100 align-items-center d-flex">
-                                                            <input type="submit" value="Tìm kiếm" class="align-self-stretch form-control btn btn-primary">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
+                                        @include('page.common.searchTour')
                                     </div>
-
                                     <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
-                                        <form action="#" class="search-property-1">
-                                            <div class="row no-gutters">
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4 border-0">
-                                                        <label for="#">Khách sạn</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control" placeholder="Tên khách sạn">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Địa điểm</label>
-                                                        <div class="form-field">
-                                                            <div class="select-wrap">
-                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                                <select name="" id="" class="form-control">
-                                                                    <option value="">$100</option>
-                                                                    <option value="">$10,000</option>
-                                                                    <option value="">$50,000</option>
-                                                                    <option value="">$100,000</option>
-                                                                    <option value="">$200,000</option>
-                                                                    <option value="">$300,000</option>
-                                                                    <option value="">$400,000</option>
-                                                                    <option value="">$500,000</option>
-                                                                    <option value="">$600,000</option>
-                                                                    <option value="">$700,000</option>
-                                                                    <option value="">$800,000</option>
-                                                                    <option value="">$900,000</option>
-                                                                    <option value="">$1,000,000</option>
-                                                                    <option value="">$2,000,000</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Khoảng giá</label>
-                                                        <div class="form-field">
-                                                            <div class="select-wrap">
-                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                                <select name="" id="" class="form-control">
-                                                                    <option value="">$100</option>
-                                                                    <option value="">$10,000</option>
-                                                                    <option value="">$50,000</option>
-                                                                    <option value="">$100,000</option>
-                                                                    <option value="">$200,000</option>
-                                                                    <option value="">$300,000</option>
-                                                                    <option value="">$400,000</option>
-                                                                    <option value="">$500,000</option>
-                                                                    <option value="">$600,000</option>
-                                                                    <option value="">$700,000</option>
-                                                                    <option value="">$800,000</option>
-                                                                    <option value="">$900,000</option>
-                                                                    <option value="">$1,000,000</option>
-                                                                    <option value="">$2,000,000</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group d-flex w-100 border-0">
-                                                        <div class="form-field w-100 align-items-center d-flex">
-                                                            <input type="submit" value="Search" class="align-self-stretch form-control btn btn-primary p-0">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
+                                        @include('page.common.searchHotel', compact('locations'))
                                     </div>
                                 </div>
                             </div>
@@ -336,125 +197,125 @@
 
     <section class="ftco-section testimony-section bg-bottom" style="background-image: url({{ asset('page/images/bg_1.jpg') }});">
         <div class="overlay"></div>
-        <div class="container">
-            <div class="row justify-content-center pb-4">
-                <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-                    <span class="subheading">Testimonial</span>
-                    <h2 class="mb-4">Tourist Feedback</h2>
-                </div>
-            </div>
-            <div class="row ftco-animate">
-                <div class="col-md-12">
-                    <div class="carousel-testimony owl-carousel">
-                        <div class="item">
-                            <div class="testimony-wrap py-4">
-                                <div class="text">
-                                    <p class="star">
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </p>
-                                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{ asset('page/images/person_1.jpg') }})"></div>
-                                        <div class="pl-3">
-                                            <p class="name">Roger Scott</p>
-                                            <span class="position">Marketing Manager</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap py-4">
-                                <div class="text">
-                                    <p class="star">
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </p>
-                                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{ asset('page/images/person_2.jpg') }})"></div>
-                                        <div class="pl-3">
-                                            <p class="name">Roger Scott</p>
-                                            <span class="position">Marketing Manager</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap py-4">
-                                <div class="text">
-                                    <p class="star">
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </p>
-                                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{ asset('page/images/person_3.jpg') }})"></div>
-                                        <div class="pl-3">
-                                            <p class="name">Roger Scott</p>
-                                            <span class="position">Marketing Manager</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap py-4">
-                                <div class="text">
-                                    <p class="star">
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </p>
-                                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{ asset('page/images/person_1.jpg') }})"></div>
-                                        <div class="pl-3">
-                                            <p class="name">Roger Scott</p>
-                                            <span class="position">Marketing Manager</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap py-4">
-                                <div class="text">
-                                    <p class="star">
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </p>
-                                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{ asset('page/images/person_2.jpg') }})"></div>
-                                        <div class="pl-3">
-                                            <p class="name">Roger Scott</p>
-                                            <span class="position">Marketing Manager</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{--<div class="container">--}}
+            {{--<div class="row justify-content-center pb-4">--}}
+                {{--<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">--}}
+                    {{--<span class="subheading">Testimonial</span>--}}
+                    {{--<h2 class="mb-4">Tourist Feedback</h2>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="row ftco-animate">--}}
+                {{--<div class="col-md-12">--}}
+                    {{--<div class="carousel-testimony owl-carousel">--}}
+                        {{--<div class="item">--}}
+                            {{--<div class="testimony-wrap py-4">--}}
+                                {{--<div class="text">--}}
+                                    {{--<p class="star">--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                    {{--</p>--}}
+                                    {{--<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>--}}
+                                    {{--<div class="d-flex align-items-center">--}}
+                                        {{--<div class="user-img" style="background-image: url({{ asset('page/images/person_1.jpg') }})"></div>--}}
+                                        {{--<div class="pl-3">--}}
+                                            {{--<p class="name">Roger Scott</p>--}}
+                                            {{--<span class="position">Marketing Manager</span>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="item">--}}
+                            {{--<div class="testimony-wrap py-4">--}}
+                                {{--<div class="text">--}}
+                                    {{--<p class="star">--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                    {{--</p>--}}
+                                    {{--<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>--}}
+                                    {{--<div class="d-flex align-items-center">--}}
+                                        {{--<div class="user-img" style="background-image: url({{ asset('page/images/person_2.jpg') }})"></div>--}}
+                                        {{--<div class="pl-3">--}}
+                                            {{--<p class="name">Roger Scott</p>--}}
+                                            {{--<span class="position">Marketing Manager</span>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="item">--}}
+                            {{--<div class="testimony-wrap py-4">--}}
+                                {{--<div class="text">--}}
+                                    {{--<p class="star">--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                    {{--</p>--}}
+                                    {{--<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>--}}
+                                    {{--<div class="d-flex align-items-center">--}}
+                                        {{--<div class="user-img" style="background-image: url({{ asset('page/images/person_3.jpg') }})"></div>--}}
+                                        {{--<div class="pl-3">--}}
+                                            {{--<p class="name">Roger Scott</p>--}}
+                                            {{--<span class="position">Marketing Manager</span>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="item">--}}
+                            {{--<div class="testimony-wrap py-4">--}}
+                                {{--<div class="text">--}}
+                                    {{--<p class="star">--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                    {{--</p>--}}
+                                    {{--<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>--}}
+                                    {{--<div class="d-flex align-items-center">--}}
+                                        {{--<div class="user-img" style="background-image: url({{ asset('page/images/person_1.jpg') }})"></div>--}}
+                                        {{--<div class="pl-3">--}}
+                                            {{--<p class="name">Roger Scott</p>--}}
+                                            {{--<span class="position">Marketing Manager</span>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="item">--}}
+                            {{--<div class="testimony-wrap py-4">--}}
+                                {{--<div class="text">--}}
+                                    {{--<p class="star">--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                        {{--<span class="fa fa-star"></span>--}}
+                                    {{--</p>--}}
+                                    {{--<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>--}}
+                                    {{--<div class="d-flex align-items-center">--}}
+                                        {{--<div class="user-img" style="background-image: url({{ asset('page/images/person_2.jpg') }})"></div>--}}
+                                        {{--<div class="pl-3">--}}
+                                            {{--<p class="name">Roger Scott</p>--}}
+                                            {{--<span class="position">Marketing Manager</span>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </section>
 
     <section class="ftco-section">

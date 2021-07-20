@@ -26,10 +26,11 @@ class RegisterRequest extends FormRequest
         return [
             //
             'name'  => 'required|max:191',
-            'r_email' => 'required|email|max:191|unique:users,email,'.$this->id,
+            'email' => 'required|email|max:191|unique:users,email,'.$this->id,
             'phone' => 'required',
-            'r_password' => 'required',
-            'password_confirm' => 'required|same:r_password'
+            'address' => 'required',
+            'password' => 'required',
+            'r_password' => 'required|same:password'
         ];
     }
 
@@ -37,13 +38,14 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name.required' => 'Vui lòng nhập vào họ tên',
-            'r_email.required' => 'Vui lòng nhập vào email đăng nhập',
-            'r_email.unique' => 'Email đăng nhập không thể trùng lặp',
-            'r_email.max' => 'Email vượt quá số ký tự cho phép',
+            'email.required' => 'Vui lòng nhập vào email đăng nhập',
+            'email.unique' => 'Email đăng nhập không thể trùng lặp',
+            'email.max' => 'Email vượt quá số ký tự cho phép',
+            'password.required' => 'Vui lòng nhập mật khẩu đăng nhập',
             'r_password.required' => 'Vui lòng nhập mật khẩu đăng nhập',
-            'password_confirm.required' => 'Vui lòng nhập mật khẩu đăng nhập',
-            'password_confirm.same' => 'Mật khẩu không trùng khớp',
+            'r_password.same' => 'Mật khẩu không trùng khớp',
             'phone.required' => 'Vui lòng nhập số điện thoại liên hệ',
+            'address.required' => 'Vui lòng nhập địa chỉ',
 
         ];
     }

@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Article;
+use App\Models\User;
+use App\Models\BookTour;
+use App\Models\Tour;
 
 class HomeController extends Controller
 {
@@ -25,7 +29,18 @@ class HomeController extends Controller
     public function index()
     {
         //
-        return view('admin.home.index');
+        $user = User::count();
+        $article = Article::count();
+        $bookTour = BookTour::count();
+        $tour = Tour::count();
+
+        $viewData = [
+            'user' => $user,
+            'article' => $article,
+            'bookTour' => $bookTour,
+            'tour' => $tour,
+        ];
+        return view('admin.home.index', $viewData);
     }
 
     /**

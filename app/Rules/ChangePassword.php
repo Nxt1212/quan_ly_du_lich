@@ -31,7 +31,7 @@ class ChangePassword implements Rule
     public function passes($attribute, $value)
     {
         //
-        $user = User::find(\Auth::user()->id);
+        $user = User::find(\Auth::guard('users')->user()->id);
         $checkPass = Hash::check($value, $user->password);
 
         if($checkPass) {

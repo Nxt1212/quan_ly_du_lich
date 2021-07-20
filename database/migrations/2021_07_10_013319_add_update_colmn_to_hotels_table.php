@@ -15,11 +15,11 @@ class AddUpdateColmnToHotelsTable extends Migration
     {
         Schema::table('hotels', function (Blueprint $table) {
             //
-            $table->dropColumn('h_acreage');
-            $table->dropColumn('h_beds');
-            $table->dropColumn('h_number_people');
-            $table->dropColumn('h_start_date');
-            $table->dropColumn('h_end_date');
+//            $table->dropColumn('h_acreage');
+//            $table->dropColumn('h_beds');
+//            $table->dropColumn('h_number_people');
+//            $table->dropColumn('h_start_date');
+//            $table->dropColumn('h_end_date');
             $table->string('h_address')->nullable()->after('h_image');
             $table->string('h_phone')->nullable()->after('h_address');
         });

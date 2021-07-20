@@ -7,7 +7,7 @@
                     <!-- form start -->
                     <div class="card-body">
                         <div class="form-group {{ $errors->first('c_name') ? 'has-error' : '' }} ">
-                            <label for="inputEmail3" class="control-label default">Tên phòng khách sạn <sup class="text-danger">(*)</sup></label>
+                            <label for="inputEmail3" class="control-label default">Tên khách sạn <sup class="text-danger">(*)</sup></label>
                             <div>
                                 <input type="text" maxlength="100" class="form-control"  placeholder="Tên phòng khách sạn" name="h_name" value="{{ old('h_name',isset($hotel) ? $hotel->h_name : '') }}">
                                 <span class="text-danger "><p class="mg-t-5">{{ $errors->first('h_name') }}</p></span>
