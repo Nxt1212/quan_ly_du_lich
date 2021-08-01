@@ -137,6 +137,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
             Route::get('/update/{status}/{id}', 'BookTourController@updateStatus')->name('book.tour.update.status')->middleware('permission:xoa-va-cap-nhat-trang-thai|full-quyen-quan-ly');
             Route::get('/delete/{id}', 'BookTourController@delete')->name('book.tour.delete')->middleware('permission:xoa-va-cap-nhat-trang-thai|full-quyen-quan-ly');
         });
+
+        Route::group(['prefix' => 'comments'], function(){
+            Route::get('/', 'CommentController@index')->name('comment.index')->middleware('permission:quan-ly-binh-luan|full-quyen-quan-ly');
+            Route::get('/update/{status}/{id}', 'CommentController@updateStatus')->name('comment.update.status');
+            Route::get('/delete/{id}', 'CommentController@delete')->name('comment.delete')->middleware('permission:|full-quyen-quan-ly');
+        });
     });
 });
 
@@ -171,5 +177,7 @@ Route::group(['namespace' => 'Page'], function() {
     Route::get('/tour/{id}/{slug}.html', 'TourController@detail')->name('tour.detail');
     Route::get('/khach-san.html', 'HotelController@index')->name('hotel');
     Route::get('/khach-san/{id}/{slug}.html', 'HotelController@detail')->name('hotel.detail');
+
+    Route::post('/comment', 'CommentController@comment')->name('comment');
 });
 

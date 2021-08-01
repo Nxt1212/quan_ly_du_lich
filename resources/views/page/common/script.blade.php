@@ -22,6 +22,8 @@
 <!-- toastr -->
 <script src="{!! asset('admin/plugins/toastr/toastr.min.js') !!}"></script>
 <script>
+    var urlComment = '{{ route('comment') }}';
+
     $(function () {
         toastr.options.closeButton = true;
         @if(session('success'))
@@ -43,3 +45,4 @@
 </script>
 <script src="{{ asset('page/js/main.js') }}"></script>
 <script src="{{ asset('page/js/tour.js') }}"></script>
+<script src="{{ asset('page/js/comment.js') }}"></script>

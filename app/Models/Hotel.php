@@ -66,4 +66,9 @@ class Hotel extends Model
     {
         return $query->where('h_status', 1);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'cm_hotel_id', 'id');
+    }
 }

@@ -49,6 +49,34 @@
                     {!! $hotel->h_description  !!}
                     <h2 class="mb-3 mt-5">#3. Nội dung</h2>
                     {!! $hotel->h_content  !!}
+
+                    <div class="pt-5 mt-5 py-5" style="border-top: 1px solid #ccc;">
+                        <h3 class="mb-5" style="font-size: 20px; font-weight: bold;">Danh sách bình luận</h3>
+                        <ul class="comment-list">
+                            @if ($hotel->comments->count() > 0)
+                                @foreach($hotel->comments as $key => $comment)
+                                    @include('page.common.itemComment', compact('comment'))
+                                @endforeach
+                            @endif
+                        </ul>
+                        <!-- END comment-list -->
+
+                        <div class="comment-form-wrap pt-5">
+                            <h3 class="mb-5" style="font-size: 20px; font-weight: bold;">{{ Auth::guard('users')->check() ? 'Bình luận về tour du lịch' : 'Bạn cần đăng nhập để bình luận' }}</h3>
+                            @if (Auth::guard('users')->check())
+                                <form action="#" class="p-5 bg-light">
+                                    <div class="form-group">
+                                        <label for="message">Nội dung</label>
+                                        <textarea name="" id="message" cols="30" rows="5" class="form-control"></textarea>
+                                        <span class="text-errors-comment" style="display: none;">Vui lòng nhập nội dung bình luận !!!</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="" value="Gửi bình luận" class="btn py-3 px-4 btn-primary btn-comment" hotel_id="{{ $hotel->id }}">
+                                    </div>
+                                </form>
+                            @endif
+                        </div>
+                    </div>
                 </div> <!-- .col-md-8 -->
                 <div class="col-lg-4 sidebar ">
                     <div class="register-tour">

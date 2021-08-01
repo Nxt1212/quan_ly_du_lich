@@ -21,35 +21,48 @@
             <div class="row">
                 @include('page.common.sideBarUser')
                 <div class="col-lg-9 ftco-animate py-md-5">
-                    <form action="{{ route('update.info.account', $user->id) }}" method="POST" class="p-5 contact-form">
+                    <form action="{{ route('update.info.account', $user->id) }}" method="POST" enctype="multipart/form-data" class="p-5 contact-form">
                         @csrf
-                        <div class="form-group">
-                            <label for="inputEmail3" class="control-label">Họ và tên <sup class="text-danger">(*)</sup></label>
-                            <input type="text" name="name" class="form-control" placeholder="Họ và tên" value="{{ old('name', $user->name) }}">
-                            @if ($errors->first('name'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="control-label">Email <sup class="text-danger">(*)</sup></label>
-                            <input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email', $user->email) }}">
-                            @if ($errors->first('email'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="control-label">Số điện thoại <sup class="text-danger">(*)</sup></label>
-                            <input type="text" name="phone" class="form-control" placeholder="Số điện thoại" value="{{ old('phone', $user->phone) }}">
-                            @if ($errors->first('phone'))
-                                <span class="text-danger">{{ $errors->first('phone') }}</span>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="control-label">Địa chỉ <sup class="text-danger">(*)</sup></label>
-                            <input type="text" name="address" class="form-control" placeholder="Địa chỉ" value="{{ old('address', $user->address) }}">
-                            @if ($errors->first('address'))
-                                <span class="text-danger">{{ $errors->first('address') }}</span>
-                            @endif
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="control-label">Họ và tên <sup class="text-danger">(*)</sup></label>
+                                    <input type="text" name="name" class="form-control" placeholder="Họ và tên" value="{{ old('name', $user->name) }}">
+                                    @if ($errors->first('name'))
+                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="control-label">Email <sup class="text-danger">(*)</sup></label>
+                                    <input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email', $user->email) }}">
+                                    @if ($errors->first('email'))
+                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="control-label">Số điện thoại <sup class="text-danger">(*)</sup></label>
+                                    <input type="text" name="phone" class="form-control" placeholder="Số điện thoại" value="{{ old('phone', $user->phone) }}">
+                                    @if ($errors->first('phone'))
+                                        <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="control-label">Địa chỉ <sup class="text-danger">(*)</sup></label>
+                                    <input type="text" name="address" class="form-control" placeholder="Địa chỉ" value="{{ old('address', $user->address) }}">
+                                    @if ($errors->first('address'))
+                                        <span class="text-danger">{{ $errors->first('address') }}</span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-md-3 ">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="control-label">Ảnh đại diện </label>
+                                    <input type="file" class="input-file" id="avatar" name="images">
+                                </div>
+                                <div class="col-md-12 text-center vcard bio">
+                                    <img src="{{  $user->avatar ? asset(pare_url_file($user->avatar)) :  asset('page/images/user_default.png') }}" alt="" class="img-circle avatar" width="100%">
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-12 text-center">
                             <div class="form-group">

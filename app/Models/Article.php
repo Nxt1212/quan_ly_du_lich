@@ -39,6 +39,11 @@ class Article extends Model
         return $this->belongsTo(User::class, 'a_user_id', 'id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'cm_article_id', 'id');
+    }
+
     /**
      * @param $request
      * @param string $id

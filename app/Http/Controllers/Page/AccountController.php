@@ -35,6 +35,13 @@ class AccountController extends Controller
             $user->email = $request->email;
             $user->phone = $request->phone;
             $user->address = $request->address;
+
+            if (isset($request->images) && !empty($request->images)) {
+                $image = upload_image('images');
+                if ($image['code'] == 1)
+                    $user->avatar = $image['name'];
+            }
+
             $user->save();
             \DB::commit();
             return redirect()->back()->with('success', 'Cập nhật thành công.');

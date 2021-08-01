@@ -28,9 +28,35 @@
                         <img src="{{ $article->a_avatar ? asset(pare_url_file($article->a_avatar)) : asset('admin/dist/img/no-image.png') }}" alt="" class="img-fluid">
                     </div>
                     <div class="content">
-                        <p>
-                            {!! $article->a_content !!}
-                        </p>
+                        {!! $article->a_content !!}
+
+                        <div class="pt-5 mt-5 py-5" style="border-top: 1px solid #ccc;">
+                            <h3 class="mb-5" style="font-size: 20px; font-weight: bold;">Danh sách bình luận</h3>
+                            <ul class="comment-list">
+                                @if ($article->comments->count() > 0)
+                                    @foreach($article->comments as $key => $comment)
+                                        @include('page.common.itemComment', compact('comment'))
+                                    @endforeach
+                                @endif
+                            </ul>
+                            <!-- END comment-list -->
+
+                            <div class="comment-form-wrap pt-5">
+                                <h3 class="mb-5" style="font-size: 20px; font-weight: bold;">{{ Auth::guard('users')->check() ? 'Bình luận về tour du lịch' : 'Bạn cần đăng nhập để bình luận' }}</h3>
+                                @if (Auth::guard('users')->check())
+                                    <form action="#" class="p-5 bg-light">
+                                        <div class="form-group">
+                                            <label for="message">Nội dung</label>
+                                            <textarea name="" id="message" cols="30" rows="5" class="form-control"></textarea>
+                                            <span class="text-errors-comment" style="display: none;">Vui lòng nhập nội dung bình luận !!!</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="" value="Gửi bình luận" class="btn py-3 px-4 btn-primary btn-comment" article_id="{{ $article->id }}">
+                                        </div>
+                                    </form>
+                                @endif
+                            </div>
+                        </div>
                     </div>
 
                 </div> <!-- .col-md-8 -->
@@ -79,25 +105,6 @@
                             @endforeach
                         @endif
                     </div>
-
-                    {{--<div class="sidebar-box ftco-animate fadeInUp ftco-animated">--}}
-                        {{--<h3>Tag Cloud</h3>--}}
-                        {{--<div class="tagcloud">--}}
-                            {{--<a href="#" class="tag-cloud-link">dish</a>--}}
-                            {{--<a href="#" class="tag-cloud-link">menu</a>--}}
-                            {{--<a href="#" class="tag-cloud-link">food</a>--}}
-                            {{--<a href="#" class="tag-cloud-link">sweet</a>--}}
-                            {{--<a href="#" class="tag-cloud-link">tasty</a>--}}
-                            {{--<a href="#" class="tag-cloud-link">delicious</a>--}}
-                            {{--<a href="#" class="tag-cloud-link">desserts</a>--}}
-                            {{--<a href="#" class="tag-cloud-link">drinks</a>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="sidebar-box ftco-animate fadeInUp ftco-animated">--}}
-                        {{--<h3>Paragraph</h3>--}}
-                        {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>--}}
-                    {{--</div>--}}
                 </div>
 
             </div>

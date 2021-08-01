@@ -70,4 +70,9 @@ class Tour extends Model
     {
         return $this->belongsTo(User::class, 't_user_id', 'id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'cm_tour_id', 'id');
+    }
 }

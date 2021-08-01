@@ -9841,7 +9841,7 @@ textarea.form-control {
   padding: 0;
   margin: 0; }
   .comment-list .children {
-    padding: 50px 0 0 40px;
+    padding: 0px 0 0 40px;
     margin: 0;
     float: left;
     width: 100%; }
@@ -10162,4 +10162,38 @@ textarea.form-control {
 
 .my-tour > tbody > tr > td > p {
   margin-bottom: 4px;
+}
+.text-errors-comment {
+  color: red;
+}
+.content-errors {
+  border: 1px solid red;
+}
+
+.input-file {
+  width: 100%;
+  padding: 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px dashed #f15d30;
+  text-align: center;
+  background-color: #f15d30;
+  cursor: pointer;
+  color: #fff;
+}
+.avatar {
+  margin-top: 10px;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+.vcard > img {
+  height: 50px;
+  width: 50px;
+}
+.item-comment {
+  min-height: 200px;
+}
+.item-comment > p {
+  min-height: 100px;
 }

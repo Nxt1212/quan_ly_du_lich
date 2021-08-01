@@ -46,12 +46,17 @@ class TourController extends Controller
 
     public function detail(Request $request, $id)
     {
-        $tour = Tour::find($id);
+        $tour = Tour::with(['comments' => function($query) use ($id){
+            $query->with(['user', 'replies' => function($q) {
+                $q->with('user')->limit(10);
+            }])->where('cm_tour_id', $id)->limit(20)->orderByDesc('id');
+        }])->find($id);
 
         if (!$tour) {
             return redirect()->back()->with('error', 'Dữ liệu không tồn tại');
         }
         $tours = Tour::where('t_location_id', $tour->t_location_id)->where('id', '<>', $id)->orderBy('id')->limit(NUMBER_PAGINATION_PAGE)->get();
+
         return view('page.tour.detail', compact('tour', 'tours'));
     }
 

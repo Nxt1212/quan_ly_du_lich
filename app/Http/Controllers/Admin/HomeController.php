@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Helpers\Date;
 use App\Models\Article;
 use App\Models\User;
 use App\Models\BookTour;
@@ -26,7 +27,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         $user = User::count();
@@ -34,11 +35,84 @@ class HomeController extends Controller
         $bookTour = BookTour::count();
         $tour = Tour::count();
 
+        // Thống kê trạng thái đơn hàng
+        // Tiep nhan
+        $transactionDefault = BookTour::where('b_status',1)->select('id')->count();
+        // Đã xác nhận
+        $transactionProcess = BookTour::where('b_status',2)->select('id')->count();
+        // Thành công
+        $transactionSuccess = BookTour::where('b_status',3)->select('id')->count();
+        // kết thúc
+        $transactionFinish = BookTour::where('b_status',4)->select('id')->count();
+        //Cancel
+        $transactionCancel = BookTour::where('b_status',5)->select('id')->count();
+
+        $statusTransaction = [
+            [
+                'Tiếp nhận' , $transactionSuccess, false
+            ],
+            [
+                'Đã xác nhận' , $transactionProcess, false
+            ],
+            [
+                'Đã thanh toán' , $transactionDefault, false
+            ],
+            [
+                'Đã kết thúc' , $transactionFinish, false
+            ],
+            [
+                'Huỷ bỏ' , $transactionCancel, false
+            ]
+        ];
+
+        $month = $request->select_month ? $request->select_month : date('m');
+        $year = $request->select_year ? $request->select_year : date('Y');
+        $listDay = Date::getListDayInMonth();
+
+        //Thống kê số lượng người lớn hàng đặt tour
+        $revenueTransactionMonth = BookTour::whereMonth('created_at', $month)->whereYear('created_at', $year)
+            ->select(\DB::raw('sum(b_number_adults) as totalMoney'), \DB::raw('DATE(created_at) day'))
+            ->groupBy('day')
+            ->get()->toArray();
+
+        // Thống kê khối lượng trẻ em đặt tour
+        $revenueTransactionMonthDefault = BookTour::whereMonth('created_at', $month)->whereYear('created_at', $year)
+            ->select(\DB::raw('sum(b_number_children) as totalMoney'), \DB::raw('DATE(created_at) day'))
+            ->groupBy('day')
+            ->get()->toArray();
+
+        $arrRevenueTransactionMonth = [];
+        $arrRevenueTransactionMonthDefault = [];
+        foreach($listDay as $day) {
+            $total = 0;
+            foreach ($revenueTransactionMonth as $key => $revenue) {
+                if ($revenue['day'] ==  $day) {
+                    $total = $revenue['totalMoney'];
+                    break;
+                }
+            }
+
+            $arrRevenueTransactionMonth[] = (int)$total;
+
+            $total = 0;
+            foreach ($revenueTransactionMonthDefault as $key => $revenue) {
+                if ($revenue['day'] ==  $day) {
+                    $total = $revenue['totalMoney'];
+                    break;
+                }
+            }
+            $arrRevenueTransactionMonthDefault[] = (int)$total;
+        }
+
         $viewData = [
             'user' => $user,
             'article' => $article,
             'bookTour' => $bookTour,
             'tour' => $tour,
+            'statusTransaction'          => json_encode($statusTransaction),
+            'listDay'                    => json_encode($listDay),
+            'arrRevenueTransactionMonth' => json_encode($arrRevenueTransactionMonth),
+            'arrRevenueTransactionMonthDefault' => json_encode($arrRevenueTransactionMonthDefault)
         ];
         return view('admin.home.index', $viewData);
     }

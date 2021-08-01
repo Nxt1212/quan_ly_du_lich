@@ -264,8 +264,54 @@
   $('.checkin_date, .checkout_date').datepicker({
 	  'format': 'm/d/yyyy',
 	  'autoclose': true
-	});
+  });
 
+	$("#avatar").change(function() {
+		if (this.files && this.files[0]) {
+			var file_data = this.files[0];
+
+			let fileSize = file_data.size / 1024 / 1024;
+			if (fileSize > 1) {
+				toastr.error(maxUploadAvatar)
+				return false;
+			}
+
+			let type = file_data.type;
+			let match = ["image/gif", "image/png", "image/jpg", "image/jpeg"];
+
+			if (type == match[0] || type == match[1] || type == match[2] || type == match[3]) {
+				let reader = new FileReader();
+				reader.onload = function(e) {
+					$('.avatar').attr('src', e.target.result);
+				}
+				reader.readAsDataURL(file_data);
+
+				// var form_data = new FormData();
+				// form_data.append('avatar', file_data);
+				//
+				// $.ajax({
+				// 	url: urlUpdateAvatar,
+				// 	dataType: 'json',
+				// 	contentType: false,
+				// 	mimeType: "multipart/form-data",
+				// 	processData: false,
+				// 	data: form_data,
+				// 	type: 'POST',
+				// 	success: function (result) {
+				// 		if (result.user) {
+				// 			toastr.success(result.message)
+				// 		} else {
+				// 			toastr.error(result.message)
+				// 		}
+				// 	},
+				// 	error: function(jqXHR, textStatus, errorThrown) {
+				// 	}
+				// });
+			} else {
+				toastr.error(mimetypeUploadAvatar)
+			}
+		}
+	});
 
 
 

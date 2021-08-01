@@ -33,82 +33,213 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>{{ $tour }}</h3>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-info"><i class="fas fa-th-large"></i></span>
 
-                                    <p>Tour</p>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Tổng số tour</span>
+                                    <span class="info-box-number">{{ number_format($tour) }}</span>
                                 </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
-                                <a href="{{ route('tour.index') }}" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
+                                <!-- /.info-box-content -->
                             </div>
+                            <!-- /.info-box -->
                         </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>{{ $bookTour }}</h3>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-success"><i class="fas fa-th-large"></i></span>
 
-                                    <p>Tour đã đặt</p>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Tour đã đặt</span>
+                                    <span class="info-box-number">{{ number_format($bookTour) }}</span>
                                 </div>
-                                <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
-                                </div>
-                                <a href="{{ route('book.tour.index') }}" class="small-box-footer">Xem thêm<i class="fas fa-arrow-circle-right"></i></a>
+                                <!-- /.info-box-content -->
                             </div>
+                            <!-- /.info-box -->
                         </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-warning">
-                                <div class="inner">
-                                    <h3>{{ $user }}</h3>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-danger"><i class="fa fa-fw fa-user"></i></span>
 
-                                    <p>Thành viên</p>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Tổng số thành viên</span>
+                                    <span class="info-box-number">{{ number_format($user) }}</span>
                                 </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="{{ route('user.index') }}" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
+                                <!-- /.info-box-content -->
                             </div>
+                            <!-- /.info-box -->
                         </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h3>{{ $article }}</h3>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-info color-palette"><i class="fas fa-file-word"></i></span>
 
-                                    <p>Bài viết</p>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Tổng số bài viết</span>
+                                    <span class="info-box-number">{{ number_format($article) }}</span>
                                 </div>
-                                <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
-                                </div>
-                                <a href="{{ route('article.index') }}" class="small-box-footer">Xem thêm<i class="fas fa-arrow-circle-right"></i></a>
+                                <!-- /.info-box-content -->
                             </div>
+                            <!-- /.info-box -->
                         </div>
-                        <!-- ./col -->
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <!-- /.col -->
-                <div class="col-md-12">
+                <div class="col-sm-8" style="margin-left: 15px">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <?php $month = date('m'); ?>
+                                <div class="form-group">
+                                    <select name="select_month" id="" class="form-control">
+                                        <option value="">Chọn tháng</option>
+                                        @for($i = 1; $i < 13; $i++)
+                                            @if(Request::get('select_month'))
+                                                <option {{ Request::get('select_month') == $i ? "selected='selected'" : '' }} value="{{$i}}">{{$i}}</option>
+                                            @else
+                                                <option {{ $month == $i ? "selected='selected'" : '' }} value="{{$i}}">{{$i}}</option>
+                                            @endif
+                                        @endfor
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <?php $year = date('Y'); ?>
+                                <div class="form-group">
+                                    <select name="select_year" id="" class="form-control">
+                                        <option value="">Chọn năm</option>
+                                        @for($i = $year - 15; $i <= $year + 5; $i++)
+                                            @if(Request::get('select_year'))
+                                                <option {{ Request::get('select_year') == $i ? "selected='selected'" : '' }} value="{{$i}}">{{$i}}</option>
+                                            @else
+                                                <option {{ $year == $i ? "selected='selected'" : '' }} value="{{$i}}">{{$i}}</option>
+                                            @endif
+                                        @endfor
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-success " style="margin-right: 10px"><i class="fas fa-search"></i> Lọc dữ liệu </button>
+                                </div>
+                            </div>
 
-                    <!-- /.card -->
+                        </div>
+                    </form>
                 </div>
-                <!-- /.col -->
+                <div class="row" style="margin-bottom: 15px;">
+
+                    <div class="col-sm-8">
+                        <figure class="highcharts-figure">
+                            <div id="container2" data-list-day="{{ $listDay }}" data-money-default={{ $arrRevenueTransactionMonthDefault }} data-money={{ $arrRevenueTransactionMonth }}>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-sm-4">
+                        <figure class="highcharts-figure">
+                            <div id="container" data-json="{{ $statusTransaction }}"></div>
+                        </figure>
+                    </div>
+                </div>
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 @stop
-@section('script')
 
+@section('script')
+    <link rel="stylesheet" href="https://code.highcharts.com/css/highcharts.css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    {{-- <script src="https://code.highcharts.com/modules/exporting.js"></script> --}}
+    {{-- <script src="https://code.highcharts.com/modules/export-data.js"></script> --}}
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script type="text/javascript">
+        let dataTransaction = $("#container").attr('data-json');
+        dataTransaction  =  JSON.parse(dataTransaction);
+
+        let listday = $("#container2").attr("data-list-day");
+        listday = JSON.parse(listday);
+
+        let listMoneyMonth = $("#container2").attr('data-money');
+        listMoneyMonth = JSON.parse(listMoneyMonth);
+
+        let listMoneyMonthDefault = $("#container2").attr('data-money-default');
+        listMoneyMonthDefault = JSON.parse(listMoneyMonthDefault);
+
+        Highcharts.chart('container', {
+
+            chart: {
+                styledMode: true
+            },
+
+            title: {
+                text: 'Trạng thái các tour du lịch'
+            },
+
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr']
+            },
+
+            series: [{
+                type: 'pie',
+                allowPointSelect: true,
+                keys: ['name', 'y', 'selected', 'sliced'],
+                data: dataTransaction,
+                showInLegend: true
+            }]
+        });
+
+        Highcharts.chart('container2', {
+            chart: {
+                type: 'spline'
+            },
+            title: {
+                text: 'Thống kê lượng khách hàng đặt tour trong tháng'
+            },
+            subtitle: {
+                text: 'Dữ liệu thống kê'
+            },
+            xAxis: {
+                categories: listday
+            },
+            yAxis: {
+                title: {
+                    text: 'Temperature'
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value + '°';
+                    }
+                }
+            },
+            tooltip: {
+                crosshairs: true,
+                shared: true
+            },
+            plotOptions: {
+                spline: {
+                    marker: {
+                        radius: 4,
+                        lineColor: '#666666',
+                        lineWidth: 1
+                    }
+                }
+            },
+            series: [
+                {
+                    name: 'Tổng số người lớn',
+                    marker: {
+                        symbol: 'square'
+                    },
+                    data: listMoneyMonth
+                },
+                {
+                    name: 'Tổng số trẻ em',
+                    marker: {
+                        symbol: 'square'
+                    },
+                    data: listMoneyMonthDefault
+                }
+            ]
+        });
+    </script>
 @stop
