@@ -181,10 +181,9 @@
                             </div>
                             <div class="col-md-6 pl-md-5 py-5">
                                 <div class="row justify-content-start pb-3">
-                                    <span class="subheading">About Us</span>
-                                    <h2 class="mb-4">Make Your Tour Memorable and Safe With Us</h2>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                                    <p><a href="#" class="btn btn-primary">Book Your Destination</a></p>
+                                    <span class="subheading">Giới thiệu</span>
+                                    <h2 class="mb-4">Hãy làm cho chuyến tham quan của bạn trở nên đáng nhớ và an toàn với chúng tôi</h2>
+                                    <p>Những chuyến đi du lịch đều đọng lại trong chúng ta nhiều kỉ niệm đặc biệt, vì thế hãy trân trọng những giây phút vui vẻ, hạnh phúc trong chuyến đi của mình. Chúng tôi sẽ đồng hành cùng bạn để góp phần làm cho những trãi nghiệm đó càng thêm tuyệt vời.</p>                                  
                                 </div>
                             </div>
                         </div>
@@ -220,9 +219,9 @@
                 <div class="col-md-12 text-center">
                     <div class="img"  style="background-image: url({{ asset('page/images/bg_2.jpg') }});">
                         <div class="overlay"></div>
-                        <h2>We Are Pacific A Travel Agency</h2>
-                        <p>We can manage your dream building A small river named Duden flows by their place</p>
-                        <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Ask For A Quote</a></p>
+                        <h2>Chúng tôi là Công ty Du lịch PACIFIC</h2>
+                        <p>Chúng tôi sẽ mang đến cho quý khách những trãi nghiệm tuyệt vời nhất</p>
+                        <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Giải đáp thắc mắc</a></p>
                     </div>
                 </div>
             </div>
