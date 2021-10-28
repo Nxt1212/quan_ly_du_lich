@@ -20,11 +20,10 @@
                 <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
                     <div class="w-100">
                         <span class="subheading">Welcome to Pacific</span>
-                        <h2 class="mb-4">It's time to start your adventure</h2>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-                            A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p>
+                        <h2 class="mb-4">Đã đến lúc bắt đầu cuộc phiêu lưu của bạn</h2>
+                        <p>Xách balo lên vào đi với chúng tôi, bạn sẽ có được những trãi nghiệm tuyệt vời với dịch vụ của chúng tôi!</p>
+                        <p>Các bạn hãy tìm đến với PACIFIC để được đi đến bất cứ nơi nào trên thế giới. Dành cho người có niềm đam mê bất tận với du lịch!</p>
+                        
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -33,8 +32,8 @@
                             <div class="services services-1 color-1 d-block img" style="background-image: url({{ asset('page/images/services-1.jpg') }});">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-paragliding"></span></div>
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">Activities</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                                    <h3 class="heading mb-3">Các hoạt động</h3>
+                                    <p>Hoạt động dã ngoại, thể thao trong quá trình du lịch</p>
                                 </div>
                             </div>
                         </div>
@@ -42,8 +41,8 @@
                             <div class="services services-1 color-2 d-block img" style="background-image: url({{ asset('page/images/services-2.jpg') }});">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">Travel Arrangements</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                                    <h3 class="heading mb-3">Sắp xếp chuyến đi</h3>
+                                    <p>Chúng tôi sẽ giúp bạn sắp xếp chuyến đi một cách thoải mái nhất, luôn luôn có các tour để bạn có nhiều sự lựa chọn</p>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +50,7 @@
                             <div class="services services-1 color-3 d-block img" style="background-image: url({{ asset('page/images/services-3.jpg') }});">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div>
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">Private Guide</h3>
+                                    <h3 class="heading mb-3">Hướng dẫn riêng</h3>
                                     <p>A small river named Duden flows by their place and supplies it with the necessary</p>
                                 </div>
                             </div>

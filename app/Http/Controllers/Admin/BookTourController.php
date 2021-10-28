@@ -73,10 +73,10 @@ class BookTourController extends Controller
         try {
             $bookTour->b_status = $status;
             if ($bookTour->save()) {
-                if ($status == 5 && $bookTour->b_status != 5) {
+                if ($status == 5) {
                     $tour = Tour::find($bookTour->b_tour_id);
-                    $numberRegistered = $tour->t_number_registered - $numberUser;
-                    $tour->t_number_registered = $numberRegistered > 0 ? $numberRegistered : 0;
+                    $tour->t_number_registered = $tour->t_number_registered - $numberUser;
+                    
                     $tour->save();
                 }
             }
