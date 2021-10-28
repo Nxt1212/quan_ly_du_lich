@@ -85,8 +85,8 @@
                             <div class="services services-1 color-3 d-block img" style="background-image: url({{ asset('page/images/services-3.jpg') }});">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div>
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">Private Guide</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                                    <h3 class="heading mb-3">Hướng dẫn riêng</h3>
+                                    <p>Xách balo lên vào đi với chúng tôi, bạn sẽ có được những trãi nghiệm tuyệt vời với dịch vụ của chúng tôi!</p>
                                 </div>
                             </div>
                         </div>
@@ -94,8 +94,8 @@
                             <div class="services services-1 color-4 d-block img" style="background-image: url({{ asset('page/images/services-4.jpg') }});">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div>
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">Location Manager</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                                    <h3 class="heading mb-3">Quản lý vị trí</h3>
+                                    <p>Các bạn hãy tìm đến với PACIFIC để được đi đến bất cứ nơi nào trên thế giới. Dành cho người có niềm đam mê bất tận với du lịch!</p>
                                 </div>
                             </div>
                         </div>
