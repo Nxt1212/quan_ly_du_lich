@@ -8,7 +8,7 @@ use App\Models\Location;
 use App\Models\Tour;
 use App\Models\Article;
 use App\Models\Comment;
-
+use Mail;
 class HomeController extends Controller
 {
     //
@@ -52,4 +52,5 @@ class HomeController extends Controller
     {
         return view('page.security.index');
     }
+    
 }

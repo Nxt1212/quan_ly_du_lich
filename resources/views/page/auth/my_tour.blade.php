@@ -39,6 +39,7 @@
                                         <td style="vertical-align: middle; width: 40%">
                                             <p>{{ $tour->tour->t_title }}</p>
                                             <p><b>Điểm xuất phát : </b> {{ $tour->tour->t_starting_gate }}</p>
+                                            <p><b>Điểm đón : </b> {{ $tour->b_address }}</p>
                                             <p><b>Ngày khởi hành : </b> {{ $tour->tour->t_start_date }}</p>
                                             <p><b>Ngày trở về : </b> {{ $tour->tour->t_end_date }}</p>
                                         </td>

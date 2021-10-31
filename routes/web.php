@@ -177,7 +177,6 @@ Route::group(['namespace' => 'Page'], function() {
     Route::get('/tour/{id}/{slug}.html', 'TourController@detail')->name('tour.detail');
     Route::get('/khach-san.html', 'HotelController@index')->name('hotel');
     Route::get('/khach-san/{id}/{slug}.html', 'HotelController@detail')->name('hotel.detail');
-
     Route::post('/comment', 'CommentController@comment')->name('comment');
 });
 

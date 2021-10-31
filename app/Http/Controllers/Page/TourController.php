@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\BookTour;
 use App\Http\Requests\BookTourRequest;
 use Illuminate\Support\Facades\Auth;
+use Mail;
 
 class TourController extends Controller
 {
@@ -97,7 +98,14 @@ class TourController extends Controller
                 $tour->save();
             }
             \DB::commit();
+
+            $mail =$user->email;;
+            Mail::send('emailtn',compact('book','tour','user'),function($email) use($mail){
+                $email->subject('Thông tin xác nhận đơn Booking');
+                $email->to($mail);
+            });
             return redirect()->route('page.home')->with('success', 'Cám ơn bạn đã đặt tour chúng tôi sẽ liên hệ sớm để xác nhận.');
+            
         } catch (\Exception $exception) {
             \DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');

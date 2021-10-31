@@ -39,6 +39,7 @@ class ArticleContrller extends Controller
 
         if ($request->a_category_id) {
             $articles->where('a_category_id', $request->a_category_id);
+            
         }
 
         $articles = $articles->orderByDesc('id')->paginate(NUMBER_PAGINATION);

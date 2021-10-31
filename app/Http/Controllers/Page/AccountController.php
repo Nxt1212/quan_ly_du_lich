@@ -9,6 +9,8 @@ use App\Http\Requests\UpdateInfoAccountRequest;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Models\User;
 use App\Models\BookTour;
+use App\Models\Tour;
+use Mail;
 
 class AccountController extends Controller
 {
@@ -77,7 +79,7 @@ class AccountController extends Controller
     {
         \DB::beginTransaction();
         try {
-
+            
             \DB::commit();
 
             return response([
@@ -110,20 +112,30 @@ class AccountController extends Controller
         }
 
         \DB::beginTransaction();
+        if($status != $bookTour->b_status){
         try {
             $bookTour->b_status = $status;
             if ($bookTour->save()) {
-                if ($status == 5 && $bookTour->b_status != 5) {
+                if ($status == 5 ) {
                     $tour = Tour::find($bookTour->b_tour_id);
                     $numberRegistered = $tour->t_number_registered - $numberUser;
                     $tour->t_number_registered = $numberRegistered > 0 ? $numberRegistered : 0;
                     $tour->save();
+                    
                 }
             }
+            $tour = Tour::find($bookTour->b_tour_id);
+            $user = User::find($bookTour->b_user_id);
+            $mailuser =$user->email;
+                    Mail::send('emailhuy',compact('user','bookTour','tour'),function($email) use($mailuser){
+                        $email->subject('Xác nhận HUỶ BOOKING');
+                        $email->to($mailuser);
+                    });
             \DB::commit();
+           
             return response([
                 'status_code' => 200,
-                'message' => 'Hủy thành công đơn hàng',
+                'message' => 'Hủy thành công đơn hàngg',
             ]);
         } catch (\Exception $exception) {
             \DB::rollBack();
@@ -132,6 +144,9 @@ class AccountController extends Controller
                 'status_code' => $code,
                 'message' => 'Không thể hủy đơn hàng',
             ]);
+        }}
+        else {
+            return redirect()->back()->with('error', 'Trạng thái đã tồn tại');
         }
     }
 }

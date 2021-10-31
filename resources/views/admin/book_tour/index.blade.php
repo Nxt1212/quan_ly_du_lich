@@ -34,6 +34,28 @@
                                         <input type="text" name="name_tour" class="form-control mg-r-15" placeholder="Tên tour">
                                     </div>
                                 </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <select class="custom-select" name="b_tour_id">
+                                            <option value="">Chọn mã tour</option>
+                                            @foreach($tours as $tour)
+                                                @if (isset($tour->children) && count($tour->children) > 0)
+                                                    <optgroup label="{{ $tour->c_name }}">
+                                                        @foreach($tour->children as $children)
+                                                            <option value="{{$tour->id}}">
+                                                                {{$tour->c_name}}
+                                                            </option>
+                                                        @endforeach
+                                                    </optgroup>
+                                                @else
+                                                    <option value="{{$tour->id}}">
+                                                        {{$tour->id}}-{{$tour->t_title}}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <input type="text" name="b_name" class="form-control mg-r-15" placeholder="Tên khách hàng">
@@ -72,7 +94,7 @@
                                 <thead>
                                 <tr>
                                     <th width="4%" class=" text-center">STT</th>
-                                    <th>Tên tour</th>
+                                    <th>Tên tour-Mã tour</th>
                                     <th>Thông tin khách hàng</th>
                                     <th>Dữ liệu tour</th>
                                     <th class="text-center">Trạng thái</th>
@@ -89,12 +111,13 @@
                                             <td class="text-center" style="vertical-align: middle; width: 2%">{{ $i }}</td>
                                             <td style="vertical-align: middle; width: 20%" class="title-content">
                                                 {{ isset($book->tour) ? $book->tour->t_title : '' }}
+                                               <p>({{ isset($book->tour) ? $book->tour->id : '' }})</p>
                                             </td>
                                             <td style="vertical-align: middle; width: 25%" class="title-content">
                                                 <p><b>Tên</b>: {{ $book->b_name }}</p>
                                                 <p><b>Email</b>: {{ $book->b_email }}</p>
                                                 <p><b>Phone</b>: {{ $book->b_phone }}</p>
-                                                <p><b>Địa chỉ</b>: {{ $book->b_address }}</p>
+                                                <p><b>Địa chỉ</b>: {{ $book->user->address }}</p>
                                             </td>
                                             <td style="vertical-align: middle; width: 25%" class="title-content">
                                                 <p><b>Ngày đi dự kiến</b>: {{ $book->b_start_date }}</p>
@@ -105,6 +128,8 @@
                                                 @endphp
                                                 <p><b>Tổng tiền </b>: {{ number_format($totalPrice, 0,',','.') }} vnd</p>
                                                 <p><b>Ghi chú</b>: {{ $book->b_note }}</p>
+                                                <p><b>mã booking</b>: {{ $book->id }}</p>
+                                                <p><b>điểm đón</b>: {{ $book->b_address }}</p>
                                             </td>
                                             <td style="vertical-align: middle; width: 11%">
                                                 <button type="button" class="btn btn-block {{ $classStatus[$book->b_status] }} btn-xs">{{ $status[$book->b_status] }}</button>

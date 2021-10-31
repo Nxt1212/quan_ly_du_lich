@@ -15,6 +15,7 @@ class UserController extends Controller
         view()->share([
             'user_active' => 'active',
             'roles' => $role->all(),
+            
         ]);
     }
     /**
@@ -22,15 +23,41 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $users = User::with('userRole');
+
+        if ($request->name) {
+            $users->where('name', 'like', '%'.$request->name.'%');
+        }
+        if ($request->email) {
+            $users->where('email', 'like', '%'.$request->email.'%');
+        }
+        if ($request->phone) {
+            $users->where('phone', 'like', '%'.$request->phone.'%');
+        }
+         
+        if ($request->user_id) {
+            $users->where('user_id', $request->user_id);
+          
+        }  
+        if ($request->id) {
+            $nameTour = $request->id;
+            $users->whereIn('id', function ($q) use ($nameTour) {
+                $q->from('role_user')
+                    ->select('role_id')
+                    ->where('user_id',$nameTour );
+            });
+        }
+
+        $users = $users->orderByDesc('id')->paginate(NUMBER_PAGINATION);
         //
-        $users = User::with([
-            'userRole' => function($userRole)
-            {
-                $userRole->select('*');
-            }
-        ])->orderBy('id', 'DESC')->paginate(10);
+        // $users = User::with([
+        //     'userRole' => function($userRole)
+        //     {
+        //         $userRole->select('*');
+        //     }
+        // ])->orderBy('id', 'DESC')->paginate(10);
         return view('admin.user.index', compact('users'));
     }
 

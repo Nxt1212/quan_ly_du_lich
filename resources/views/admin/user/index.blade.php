@@ -14,6 +14,71 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
+      <!-- Main content -->
+      <section class="content">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="card card-default">
+                    <div class="card-header card-header-border-bottom">
+                        <h3 class="card-title">From tìm kiếm</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <input type="text" name="email" class="form-control mg-r-15" placeholder="email">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control mg-r-15" placeholder="Tên user">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <input type="text" name="phone" class="form-control mg-r-15" placeholder="Số điện thoại">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <select class="custom-select" name="id">
+                                            <option value="">Chọn vai trò</option>
+                                            @foreach($roles as $role)
+                                                @if (isset($role->children) && count($role->children) > 0)
+                                                    <optgroup label="{{ $role->id }}">
+                                                        @foreach($role->children as $children)
+                                                            <option value="{{$role->id}}">
+                                                                {{$role->id}}
+                                                            </option>
+                                                        @endforeach
+                                                    </optgroup>
+                                                @else
+                                                    <option value="{{$role->id}}">
+                                                        {{$role->display_name}}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-success " style="margin-right: 10px"><i class="fas fa-search"></i> Tìm kiếm </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -58,7 +123,7 @@
                                                         @endforeach
                                                     @endif
                                                 </td>
-                                                <td>{{ $user->status }}</td>
+                                                <td>{{ $user->status==1?"Hoạt động":"Đã khoá" }}</td>
                                                 <td class="text-center">
                                                     <a class="btn btn-primary btn-sm" href="{{ route('user.update', $user->id) }}">
                                                         <i class="fas fa-pencil-alt"></i>
