@@ -94,7 +94,7 @@
                             </div>
                             <div class="col-md-6 pl-md-5 py-5">
                                 <div class="row justify-content-start pb-3">
-                                    <span class="subheading">About Us</span>
+                                    <span class="subheading">Giới thiệu</span>
                                     <h2 class="mb-4">Hãy làm cho chuyến tham quan của bạn trở nên đáng nhớ và an toàn với chúng tôi</h2>
                                     <p>Những chuyến đi du lịch đều đọng lại trong chúng ta nhiều kỉ niệm đặc biệt, vì thế hãy trân trọng những giây phút vui vẻ, hạnh phúc trong chuyến đi của mình. Chúng tôi sẽ đồng hành cùng bạn để góp phần làm cho những trãi nghiệm đó càng thêm tuyệt vời.</p>
                                 </div>
