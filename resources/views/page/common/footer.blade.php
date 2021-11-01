@@ -4,7 +4,7 @@
             <div class="col-md pt-5">
                 <div class="ftco-footer-widget pt-md-5 mb-4">
                     <h2 class="ftco-heading-2">Giới thiệu</h2>
-                    <p>Website PACIFIC cho phép đặt các tour du lịch trong vào ngoài nước.</p>
+                    <p>Website Fun Travel cho phép đặt các tour du lịch trong vào ngoài nước.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                         <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
@@ -45,7 +45,7 @@
                         <ul>
                             <li><span class="icon fa fa-map-marker"></span><span class="text">1-3 Đường D4, KDC Him Lam, phường Tân Hưng, Quận 7, TPHCM</span></li>
                             <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">0378759723</span></a></li>
-                            <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">dulich@yourdomain.com</span></a></li>
+                            <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">funtravel@gmail.com</span></a></li>
                         </ul>
                     </div>
                 </div>
