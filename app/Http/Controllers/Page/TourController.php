@@ -111,4 +111,10 @@ class TourController extends Controller
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
+    public function loi()
+    {
+      
+            return redirect()->back()->with('error', 'Số lượng người đăng ký đã vượt quá giới hạn');
+
+    }
 }

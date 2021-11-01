@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@section('title', 'Mạng bán TOUR DU LỊCH trực tuyến hàng đầu Việt nam | Fun Travel')
+@section('title', 'Cuộc đời là những chuyến đi | Fun Travel')
 @section('style')
 @stop
 @section('content')

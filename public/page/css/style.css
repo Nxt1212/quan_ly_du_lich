@@ -8950,7 +8950,9 @@ h1, h2, h3, h4, h5,
 .project-destination:hover .text span {
   padding-right: 20px;
   background: #f15d30; }
-
+  
+    
+     
 .project-wrap {
   margin-bottom: 30px; }
   .project-wrap .img {
@@ -8992,6 +8994,7 @@ h1, h2, h3, h4, h5,
         border-style: solid;
         border-width: 8px 0 0 8px;
         border-color: transparent transparent transparent #c7390d; }
+       
   .project-wrap.hotel .img {
     height: 320px; }
   .project-wrap .text {

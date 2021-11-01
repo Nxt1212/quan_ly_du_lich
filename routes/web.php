@@ -167,6 +167,7 @@ Route::group(['namespace' => 'Page'], function() {
     });
 
     Route::get('/', 'HomeController@index')->name('page.home');
+    Route::get('/loi', 'TourController@loi')->name('loi.loi');
     Route::get('/tin-tuc.html', 'ArticleController@index')->name('articles.index');
     Route::get('/tin-tuc/{id}/{slug}.html', 'ArticleController@detail')->name('articles.detail');
     Route::get('/ve-chung-toi.html', 'HomeController@about')->name('about.us');

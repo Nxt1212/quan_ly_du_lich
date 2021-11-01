@@ -71,13 +71,15 @@
                             </tr>
                         </table>
                         <h2 class="mb-3 mt-5">#2. Lịch trình</h2>
-                        <p>
+                        <p >
                             {!! $tour->t_description !!}
                         </p>
+                      
                         <h2 class="mb-3 mt-5">#3. Giới thiệu tour</h2>
                         <p>
                             {!! $tour->t_content !!}
                         </p>
+
                     </div>
                     <div class="pt-5 mt-5 py-5" style="border-top: 1px solid #ccc;">
                         <h3 class="mb-5" style="font-size: 20px; font-weight: bold;">Danh sách bình luận</h3>
@@ -110,7 +112,14 @@
                 <div class="col-lg-4">
                     <div class="register-tour">
                         <p class="price-tour">Giá từ : <span>{{ number_format($tour->t_price_children, 0, ',', '.') }}</span> vnd</p>
+                        @if($tour->t_number_registered<$tour->t_number_guests)
+                        
                         <a href="{{ route('book.tour', ['id' => $tour->id, 'slug' => safeTitle($tour->t_title)]) }}" class="btn btn-primary py-3 px-4" style="width: 80%">Đặt Tour</a>
+                    
+                    @else
+                                         <a href="{{ route('loi.loi') }}" class="btn btn-primary py-3 px-4" style="width: 80%">Đã hết chỗ</a>
+
+                    @endif
                     </div>
                     @if ($tours->count() > 0)
                         <div class="bg-light sidebar-box ftco-animate fadeInUp ftco-animated related-tour">
