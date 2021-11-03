@@ -77,7 +77,7 @@ class BookTourController extends Controller
         if (!$bookTour) {
             return redirect()->back()->with('error', 'Dữ liệu không tồn tại');
         }
-
+    $temp= $bookTour->b_status;
         \DB::beginTransaction();
         if($status != $bookTour->b_status){
         try {
@@ -85,7 +85,18 @@ class BookTourController extends Controller
             if ($bookTour->save()) {
               
                 if ($status == 5 ) {
-                    $tour = Tour::find($bookTour->b_tour_id);
+                    if($temp==1){
+                        $tour = Tour::find($bookTour->b_tour_id);
+                    $tour->t_follow= $tour->t_follow - $numberUser;                   
+                    $tour->save();
+                    $user = User::find($bookTour->b_user_id);
+                    $mailuser =$user->email;
+                    Mail::send('emailhuy',compact('user','bookTour','tour'),function($email) use($mailuser){
+                        $email->subject('Xác nhận HUỶ BOOKING');
+                        $email->to($mailuser);
+                    });
+                    }else {
+                        $tour = Tour::find($bookTour->b_tour_id);
                     $tour->t_number_registered = $tour->t_number_registered - $numberUser;                   
                     $tour->save();
                     $user = User::find($bookTour->b_user_id);
@@ -94,6 +105,8 @@ class BookTourController extends Controller
                         $email->subject('Xác nhận HUỶ BOOKING');
                         $email->to($mailuser);
                     });
+                    }
+                    
                 }
                 if($status==3){
                     $tour = Tour::find($bookTour->b_tour_id);
@@ -106,6 +119,9 @@ class BookTourController extends Controller
                 }
                 if($status==2){
                     $tour = Tour::find($bookTour->b_tour_id);
+                    $tour->t_number_registered = $tour->t_number_registered + $numberUser;
+                    $tour->t_follow = $tour->t_follow - $numberUser;
+                    $tour->save();
                     $user = User::find($bookTour->b_user_id);
                     $mailuser =$user->email;
                     Mail::send('email',compact('user','bookTour','tour'),function($email) use($mailuser){

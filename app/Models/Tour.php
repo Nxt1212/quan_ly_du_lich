@@ -34,6 +34,7 @@ class Tour extends Model
         't_location_id',
         't_user_id',
         't_number_registered',
+        't_follow',
         't_status',
     ];
 

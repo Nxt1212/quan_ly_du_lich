@@ -63,11 +63,12 @@
                             </tr>
                             <tr>
                                 <td width="30%">Giá người lớn</td>
-                                <td>{{ number_format($tour->t_price_adults, 0, ',', '.') }} vnd</td>
+                                <td>{{ number_format($tour->t_price_adults-($tour->t_price_adults*$tour->t_sale/100),0,',','.') }} vnd</td>
                             </tr>
                             <tr>
                                 <td width="30%">Giá trẻ em</td>
-                                <td>{{ number_format($tour->t_price_children, 0, ',', '.') }} vnd</td>
+                                <td> {{ number_format($tour->t_price_children-($tour->t_price_children*$tour->t_sale/100),0,',','.') }} vnd</td>
+                               
                             </tr>
                         </table>
                         <h2 class="mb-3 mt-5">#2. Lịch trình</h2>
@@ -111,7 +112,7 @@
                 </div> <!-- .col-md-8 -->
                 <div class="col-lg-4">
                     <div class="register-tour">
-                        <p class="price-tour">Giá từ : <span>{{ number_format($tour->t_price_children, 0, ',', '.') }}</span> vnd</p>
+                        <p class="price-tour">Giá từ : <span>{{ number_format($tour->t_price_adults-($tour->t_price_adults*$tour->t_sale/100),0,',','.') }}</span> vnd</p>
                         @if($tour->t_number_registered<$tour->t_number_guests)
                         
                         <a href="{{ route('book.tour', ['id' => $tour->id, 'slug' => safeTitle($tour->t_title)]) }}" class="btn btn-primary py-3 px-4" style="width: 80%">Đặt Tour</a>

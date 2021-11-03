@@ -124,8 +124,9 @@
                                                 <p><b>Số người lớn</b>: {{ $book->b_number_adults }}</p>
                                                 <p><b>Số trẻ em</b>: {{ $book->b_number_children }}</p>
                                                 @php
-                                                    $totalPrice = $book->b_number_adults * $book->tour->t_price_adults + $book->b_number_children * $book->tour->t_price_children;
+                                                    $totalPrice = $book->b_number_adults * ($book->tour->t_price_adults-($book->tour->t_price_adults* $book->tour->t_sale/100) ) + $book->b_number_children * ($book->tour->t_price_adults-($book->tour->t_price_adults* $book->tour->t_sale/100));
                                                 @endphp
+                                              
                                                 <p><b>Tổng tiền </b>: {{ number_format($totalPrice, 0,',','.') }} vnd</p>
                                                 <p><b>Ghi chú</b>: {{ $book->b_note }}</p>
                                                 <p><b>mã booking</b>: {{ $book->id }}</p>

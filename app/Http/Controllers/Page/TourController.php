@@ -94,7 +94,7 @@ class TourController extends Controller
             $book = BookTour::create($params);
 
             if ($book) {
-                $tour->t_number_registered = $tour->t_number_registered + $numberUser;
+                $tour->t_follow = $tour->t_follow + $numberUser;
                 $tour->save();
             }
             \DB::commit();

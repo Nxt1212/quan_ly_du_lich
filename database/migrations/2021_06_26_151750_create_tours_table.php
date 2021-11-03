@@ -37,6 +37,8 @@ class CreateToursTable extends Migration
             $table->unsignedBigInteger('t_user_id')->index()->nullable();
             $table->foreign('t_user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('t_number_registered')->default(0);
+            $table->integer('t_follow')->default(0);
             $table->tinyInteger('t_status')->default(0);
             $table->timestamps();
         });

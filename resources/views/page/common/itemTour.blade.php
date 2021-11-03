@@ -32,9 +32,15 @@
             <p class="location"><span class="fa fa-map-marker"></span> Từ : {{ isset($tour->t_starting_gate) ? $tour->t_starting_gate : '' }}</p>
             <p class="location"><span class="fa fa-calendar-check-o"></span> Khởi hành : {{ $tour->t_start_date  }}</p>
             <?php $number = $tour->t_number_guests - $tour->t_number_registered ?>
-            <p class="location"><span class="fa fa-user"></span> Số chỗ : {{ $tour->t_number_guests  }}</p>
+            <p class="location"><span class="fa fa-user"></span> Số chỗ : {{ $tour->t_number_guests  }} - Còn trống: {{  $number  }} </p>
+          
+            <p class="location"><span class="fa fa-user"></span> Đã xác nhận : {{  $tour->t_number_registered  }}</p>
             @if($tour->t_number_registered<$tour->t_number_guests)
-            <p class="location"><span class="fa fa-user"></span> Số chỗ còn trống : {{  $number  }}</p>
+            
+            <a class="location"><span class="fa fa-user"></span> số người đang đăng ký: {{ $tour->t_follow  }} </a>
+            @endif
+            @if($number-$tour->t_follow<2 && $number-$tour->t_follow!=0)
+            <a style="color:red"> sắp hết </a>
             @endif
             {{--<ul>--}}
             {{--<li><i class="fa fa-user" aria-hidden="true"></i> 2</li>--}}
