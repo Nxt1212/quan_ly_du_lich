@@ -53,7 +53,7 @@
                             <span class="fa fa-fw fa-facebook-f"></span>
                         </div>
                         <h3 class="mb-2">Website</h3>
-                        <p><a href="#">yoursite.com</a></p>
+                        <p><a href="#">http://funtravel.xyz</a></p>
                     </div>
                 </div>
             </div>
