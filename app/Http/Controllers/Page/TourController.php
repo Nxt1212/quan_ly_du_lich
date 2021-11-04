@@ -99,7 +99,7 @@ class TourController extends Controller
             }
             \DB::commit();
 
-            $mail =$user->email;;
+            $mail =$user->email;
             Mail::send('emailtn',compact('book','tour','user'),function($email) use($mail){
                 $email->subject('Thông tin xác nhận đơn Booking');
                 $email->to($mail);
