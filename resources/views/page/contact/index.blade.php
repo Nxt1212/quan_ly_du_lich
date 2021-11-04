@@ -43,8 +43,8 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <span class="fa fa-paper-plane"></span>
                         </div>
-                        <h3 class="mb-2">Email Address</h3>
-                        <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                        <h3 class="mb-2">Địa chỉ email</h3>
+                        <p><a href="mailto:info@yoursite.com">funtravel@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
