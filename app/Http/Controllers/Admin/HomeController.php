@@ -67,20 +67,20 @@ class HomeController extends Controller
 
         $month = $request->select_month ? $request->select_month : date('m');
         $year = $request->select_year ? $request->select_year : date('Y');
-        $listDay = Date::getListDayInMonth();
+        $listDay = Date::getListDayInMonth($month, $year);
 
         //Thống kê số lượng người lớn hàng đặt tour
         $revenueTransactionMonth = BookTour::whereMonth('created_at', $month)->whereYear('created_at', $year)
             ->select(\DB::raw('sum(b_number_adults) as totalMoney'), \DB::raw('DATE(created_at) day'))
             ->groupBy('day')
             ->get()->toArray();
-
+        
         // Thống kê khối lượng trẻ em đặt tour
         $revenueTransactionMonthDefault = BookTour::whereMonth('created_at', $month)->whereYear('created_at', $year)
             ->select(\DB::raw('sum(b_number_children) as totalMoney'), \DB::raw('DATE(created_at) day'))
             ->groupBy('day')
             ->get()->toArray();
-
+            
         $arrRevenueTransactionMonth = [];
         $arrRevenueTransactionMonthDefault = [];
         foreach($listDay as $day) {

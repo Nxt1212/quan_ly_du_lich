@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
-                                        <select class="custom-select" name="id">
+                                        <select class="custom-select" name="role_id">
                                             <option value="">Chọn vai trò</option>
                                             @foreach($roles as $role)
                                                 @if (isset($role->children) && count($role->children) > 0)

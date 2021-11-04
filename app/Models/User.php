@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function getInfoEmail($email)
     {
-        return $this->where('email', $email)->first();
+        return $this->where(['email'=>$email,'status'=>1])->first();
     }
 
     public function userRole()

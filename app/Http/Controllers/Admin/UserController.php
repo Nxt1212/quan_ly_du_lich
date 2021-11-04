@@ -40,24 +40,14 @@ class UserController extends Controller
         if ($request->user_id) {
             $users->where('user_id', $request->user_id);
           
-        }  
-        if ($request->id) {
-            $nameTour = $request->id;
-            $users->whereIn('id', function ($q) use ($nameTour) {
-                $q->from('role_user')
-                    ->select('role_id')
-                    ->where('user_id',$nameTour );
-            });
+        }
+        
+        if ($request->role_id) {
+            $listUser = \DB::table('role_user')->where('role_id', $request->role_id)->pluck('user_id');
+            $users->whereIn('id', $listUser);
         }
 
         $users = $users->orderByDesc('id')->paginate(NUMBER_PAGINATION);
-        //
-        // $users = User::with([
-        //     'userRole' => function($userRole)
-        //     {
-        //         $userRole->select('*');
-        //     }
-        // ])->orderBy('id', 'DESC')->paginate(10);
         return view('admin.user.index', compact('users'));
     }
 

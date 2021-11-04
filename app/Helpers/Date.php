@@ -4,11 +4,9 @@ namespace App\Helpers;
 
 class Date
 {
-    public static function getListDayInMonth()
+    public static function getListDayInMonth($month = NULL, $year = NULL)
     {
         $arrayDay = [];
-        $month    = date('m');
-        $year     = date('Y');
         // Lấy tất cả các ngày trong tháng
         for ($day =  1; $day <= 31 ; $day ++)
         {
