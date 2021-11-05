@@ -33,8 +33,8 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <span class="fa fa-phone"></span>
                         </div>
-                        <h3 class="mb-2">Contact Number</h3>
-                        <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
+                        <h3 class="mb-2">Số điện thoại liên hệ</h3>
+                        <p><a href="tel://1234567920">0378759723</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
@@ -42,7 +42,7 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <span class="fa fa-paper-plane"></span>
                         </div>
-                        <h3 class="mb-2">Email Address</h3>
+                        <h3 class="mb-2">Địa chỉ email</h3>
                         <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
                     </div>
                 </div>
