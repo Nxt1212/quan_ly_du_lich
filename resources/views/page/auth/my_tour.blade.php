@@ -48,7 +48,7 @@
                                             <p><b>Số người lớn : </b> {{ $tour->b_number_adults }}</p>
                                             <p><b>Số trẻ em :</b> {{ $tour->b_number_children }}</p>
                                             @php
-                                                $totalPrice = $tour->b_number_adults * $tour->tour->t_price_adults + $tour->b_number_children * $tour->tour->t_price_children;
+                                            $totalPrice = $tour->b_number_adults * ($tour->tour->t_price_adults-($tour->tour->t_price_adults* $tour->tour->t_sale/100) ) + $tour->b_number_children * ($tour->tour->t_price_adults-($tour->tour->t_price_adults* $tour->tour->t_sale/100));
                                             @endphp
                                             <p><b>Tổng tiền :</b> {{ number_format($totalPrice, 0,',','.') }} vnd</p>
                                             <p><b>Ghi chú :</b> {{ $tour->b_note }}</p>
