@@ -18,7 +18,7 @@
     Mã booking: <b style="color:red"> {{$book->id}}</b><br>
     <b style="color:red">Xin quý khách vui lòng nhớ số booking để thuận tiện cho giao dịch sau này</b><br>
     @php
-         $totalPrice = $bookTour->b_number_adults * ($tour->t_price_adults-($tour->t_price_adults* $tour->t_sale/100) ) + $bookTour->b_number_children * ($tour->t_price_adults-($tour->t_price_adults* $tour->t_sale/100));
+         $totalPrice = $book->b_number_adults * ($tour->t_price_adults-($tour->t_price_adults* $tour->t_sale/100) ) + $book->b_number_children * ($tour->t_price_adults-($tour->t_price_adults* $tour->t_sale/100));
      @endphp
     Trị giá booking: <b>{{ number_format($totalPrice, 0,',','.') }} vnd </b><br>
       Ngày booking:<b> {{$book->created_at}}</b><br>

@@ -79,12 +79,18 @@ class BookTourController extends Controller
         }
     $temp= $bookTour->b_status;
         \DB::beginTransaction();
-        if($status != $bookTour->b_status){
+        if($status != $bookTour->b_status && $status > $bookTour->b_status ){
         try {
             $bookTour->b_status = $status;
+            
             if ($bookTour->save()) {
-              
+                if($status == 4 && $temp !=3){
+                    return redirect()->back()->with('error', 'thao tác lỗi');
+                }
                 if ($status == 5 ) {
+                    if($temp ==4 ) {
+                        return redirect()->back()->with('error', 'Thao tác sai');
+                    }
                     if($temp==1){
                         $tour = Tour::find($bookTour->b_tour_id);
                     $tour->t_follow= $tour->t_follow - $numberUser;                   
@@ -107,17 +113,34 @@ class BookTourController extends Controller
                     });
                     }
                     
-                }
+                } 
                 if($status==3){
-                    $tour = Tour::find($bookTour->b_tour_id);
-                    $user = User::find($bookTour->b_user_id);
-                    $mailuser =$user->email;
-                    Mail::send('emailtt',compact('user','bookTour','tour'),function($email) use($mailuser){
-                        $email->subject('Xác nhận thanh toán');
-                        $email->to($mailuser);
-                    });
+                    if($temp = 2) {
+                        $tour = Tour::find($bookTour->b_tour_id);
+                        $user = User::find($bookTour->b_user_id);
+                        $mailuser =$user->email;
+                        Mail::send('emailtt',compact('user','bookTour','tour'),function($email) use($mailuser){
+                            $email->subject('Xác nhận thanh toán');
+                            $email->to($mailuser);
+                        });
+                    }
+                    if($temp = 1) {
+
+                        $tour = Tour::find($bookTour->b_tour_id);
+                        $tour->t_number_registered = $tour->t_number_registered + $numberUser;
+                        $tour->t_follow = $tour->t_follow - $numberUser;
+                        $tour->save();
+                        $user = User::find($bookTour->b_user_id);
+                        $mailuser =$user->email;
+                        Mail::send('emailtt',compact('user','bookTour','tour'),function($email) use($mailuser){
+                            $email->subject('Xác nhận thanh toán');
+                            $email->to($mailuser);
+                        });
+                    }
+                    
                 }
-                if($status==2){
+                if($status==2  ){
+                   
                     $tour = Tour::find($bookTour->b_tour_id);
                     $tour->t_number_registered = $tour->t_number_registered + $numberUser;
                     $tour->t_follow = $tour->t_follow - $numberUser;
@@ -138,7 +161,7 @@ class BookTourController extends Controller
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }else {
-        return redirect()->back()->with('error', 'Trạng thái đã tồn tại');
+        return redirect()->back()->with('error', 'Lỗi thao tác');
     }
     }
 }
