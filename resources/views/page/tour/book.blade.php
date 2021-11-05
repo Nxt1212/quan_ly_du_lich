@@ -24,8 +24,8 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <span class="fa fa-map-marker"></span>
                         </div>
-                        <h3 class="mb-2">Address</h3>
-                        <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+                        <h3 class="mb-2">Địa chỉ</h3>
+                        <p>1-3 Đường D4, KDC Him Lam, phường Tân Hưng, Quận 7, TPHCM</p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
@@ -43,7 +43,7 @@
                             <span class="fa fa-paper-plane"></span>
                         </div>
                         <h3 class="mb-2">Địa chỉ email</h3>
-                        <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                        <p><a href="mailto:info@yoursite.com">funtravel@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
@@ -52,7 +52,7 @@
                             <span class="fa fa-globe"></span>
                         </div>
                         <h3 class="mb-2">Website</h3>
-                        <p><a href="#">yoursite.com</a></p>
+                        <p><a href="#">http://funtravel.xyz</a></p>
                     </div>
                 </div>
             </div>
