@@ -74,9 +74,9 @@
                 <div class="col-md-12 text-center">
                     <div class="img" style="background-image: url({{ asset('page/images/bg_2.jpg') }});">
                         <div class="overlay"></div>
-                        <h2>We Are Pacific A Travel Agency</h2>
-                        <p>We can manage your dream building A small river named Duden flows by their place</p>
-                        <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Ask For A Quote</a></p>
+                        <h2>Chào mừng bạn đến với Fun Travel</h2>
+                        <p>Chúng tôi sẽ đem đến trãi nghiệm các tour du lịch tốt nhất dành cho bạn</p>
+                        <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Đặt câu hỏi?</a></p>
                     </div>
                 </div>
             </div>
