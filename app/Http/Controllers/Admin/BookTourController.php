@@ -115,7 +115,8 @@ class BookTourController extends Controller
                     
                 } 
                 if($status==3){
-                    if($temp = 2) {
+                   
+                    if($temp == 2) {
                         $tour = Tour::find($bookTour->b_tour_id);
                         $user = User::find($bookTour->b_user_id);
                         $mailuser =$user->email;
@@ -124,7 +125,7 @@ class BookTourController extends Controller
                             $email->to($mailuser);
                         });
                     }
-                    if($temp = 1) {
+                    if($temp == 1) {
 
                         $tour = Tour::find($bookTour->b_tour_id);
                         $tour->t_number_registered = $tour->t_number_registered + $numberUser;
