@@ -221,7 +221,7 @@
                         <div class="overlay"></div>
                         <h2>Chúng tôi là Công ty Du lịch Fun Travel</h2>
                         <p>Chúng tôi sẽ mang đến cho quý khách những trãi nghiệm tuyệt vời nhất</p>
-                        <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Giải đáp thắc mắc</a></p>
+                        <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Liên hệ qua Messager của chúng tôi</a></p>
                     </div>
                 </div>
             </div>

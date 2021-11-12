@@ -76,7 +76,7 @@
                         <div class="overlay"></div>
                         <h2>Chào mừng bạn đến với Fun Travel</h2>
                         <p>Chúng tôi sẽ đem đến trãi nghiệm các tour du lịch tốt nhất dành cho bạn</p>
-                        <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Đặt câu hỏi?</a></p>
+                        <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Liên hệ qua Messager của chúng tôi</a></p>
                     </div>
                 </div>
             </div>
