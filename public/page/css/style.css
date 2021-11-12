@@ -8812,7 +8812,12 @@ h1, h2, h3, h4, h5,
     color: rgba(0, 0, 0, 0.1); }
     @media (max-width: 767.98px) {
       .search-property-1 .form-group .icon {
-        right: 10px; } }
+        right: 10px; 
+        display: block;
+        float: left;
+        width: 10%;
+
+      } }
 
 .bg-light {
   background: #f9fafb !important; }

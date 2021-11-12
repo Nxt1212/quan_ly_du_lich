@@ -39,7 +39,7 @@
             
             <a class="location"><span class="fa fa-user"></span> số người đang đăng ký: {{ $tour->t_follow  }} </a>
             @endif
-            @if($number-$tour->t_follow<2 && $number-$tour->t_follow!=0)
+            @if($number-$tour->t_follow<2 && $tour->t_number_registered!=$tour->t_number_guests)
             <a style="color:red"> sắp hết </a>
             @endif
             {{--<ul>--}}
