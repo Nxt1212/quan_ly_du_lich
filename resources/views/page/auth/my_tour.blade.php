@@ -44,11 +44,11 @@
                                             <p><b>Ngày trở về : </b> {{ $tour->tour->t_end_date }}</p>
                                         </td>
                                         <td style="vertical-align: middle; width: 40%">
-                                            <p><b>Ngày đi dự kiến :</b> {{ $tour->b_start_date }}</p>
-                                            <p><b>Số người lớn : </b> {{ $tour->b_number_adults }}</p>
-                                            <p><b>Số trẻ em :</b> {{ $tour->b_number_children }}</p>
+                                         <p><b>Mã booking : </b> {{ $tour->id }}</p>
+                                            <p><b>Số người lớn : </b> {{ $tour->b_number_adults }} - <b>Thành tiền</b>: {{ number_format($tour->b_number_adults*$tour->b_price_adults, 0,',','.') }} vnd</p>
+                                            <p><b>Số trẻ em :</b> {{ $tour->b_number_children }} - <b>Thành tiền</b>: {{ number_format($tour->b_number_children*$tour->b_price_children, 0,',','.') }} vnd</p>
                                             @php
-                                            $totalPrice = $tour->b_number_adults * ($tour->tour->t_price_adults-($tour->tour->t_price_adults* $tour->tour->t_sale/100) ) + $tour->b_number_children * ($tour->tour->t_price_adults-($tour->tour->t_price_adults* $tour->tour->t_sale/100));
+                                            $totalPrice = ($tour->b_number_adults*$tour->b_price_adults)+($tour->b_number_children*$tour->b_price_children)
                                             @endphp
                                             <p><b>Tổng tiền :</b> {{ number_format($totalPrice, 0,',','.') }} vnd</p>
                                             <p><b>Ghi chú :</b> {{ $tour->b_note }}</p>

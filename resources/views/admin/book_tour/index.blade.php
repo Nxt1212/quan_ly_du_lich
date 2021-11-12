@@ -119,18 +119,16 @@
                                                 <p><b>Phone</b>: {{ $book->b_phone }}</p>
                                                 <p><b>Địa chỉ</b>: {{ $book->user->address }}</p>
                                             </td>
-                                            <td style="vertical-align: middle; width: 25%" class="title-content">
-                                                <p><b>Ngày đi dự kiến</b>: {{ $book->b_start_date }}</p>
-                                                <p><b>Số người lớn</b>: {{ $book->b_number_adults }}</p>
-                                                <p><b>Số trẻ em</b>: {{ $book->b_number_children }}</p>
+                                            <td style="vertical-align: middle; width: 25%" class="title-content">                                            
+                                                <p><b>Số người lớn</b>: {{ $book->b_number_adults }} - <b>Thành tiền</b>: {{ number_format($book->b_number_adults*$book->b_price_adults, 0,',','.') }} vnd</p>
+                                                <p><b>Số trẻ em</b>: {{ $book->b_number_children }} - <b>Thành tiền</b>: {{ number_format($book->b_number_children*$book->b_price_children, 0,',','.') }} vnd</p>
                                                 @php
-                                                    $totalPrice = $book->b_number_adults * ($book->tour->t_price_adults-($book->tour->t_price_adults* $book->tour->t_sale/100) ) + $book->b_number_children * ($book->tour->t_price_children-($book->tour->t_price_children* $book->tour->t_sale/100));
+                                                    $totalPrice = ($book->b_number_adults*$book->b_price_adults) + ($book->b_number_children*$book->b_price_children)
                                                 @endphp
-                                              
                                                 <p><b>Tổng tiền </b>: {{ number_format($totalPrice, 0,',','.') }} vnd</p>
-                                                <p><b>Ghi chú</b>: {{ $book->b_note }}</p>
                                                 <p><b>mã booking</b>: {{ $book->id }}</p>
                                                 <p><b>điểm đón</b>: {{ $book->b_address }}</p>
+                                                <p><b>Ghi chú</b>: {{ $book->b_note }}</p>
                                             </td>
                                             <td style="vertical-align: middle; width: 11%">
                                                 <button type="button" class="btn btn-block {{ $classStatus[$book->b_status] }} btn-xs">{{ $status[$book->b_status] }}</button>

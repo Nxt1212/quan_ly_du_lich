@@ -1,3 +1,4 @@
+@if($tour->t_status < 2)
 <div class="{{ !isset($itemTour) ? 'col-md-4' : '' }} ftco-animate fadeInUp ftco-animated {{ isset($itemTour) ? $itemTour : '' }}">
     <div class="project-wrap">
         <a href="{{ route('tour.detail', ['id' => $tour->id, 'slug' => safeTitle($tour->t_title)]) }}" class="img"
@@ -49,3 +50,4 @@
         </div>
     </div>
 </div>
+@endif

@@ -91,8 +91,9 @@ class TourController extends Controller
             $params['b_tour_id'] = $id;
             $params['b_user_id'] = $user->id;
             $params['b_status'] = 1;
+            $params['b_price_adults']= $tour->t_price_adults -( $tour->t_price_adults* $tour->t_sale/100);
+            $params['b_price_children']=$tour->t_price_children -( $tour->t_price_children* $tour->t_sale/100); 
             $book = BookTour::create($params);
-
             if ($book) {
                 $tour->t_follow = $tour->t_follow + $numberUser;
                 $tour->save();

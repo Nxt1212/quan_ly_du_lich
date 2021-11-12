@@ -13,7 +13,8 @@ class HomeController extends Controller
 {
     //
     public function index()
-    {
+    { 
+        
         $locations = Location::with('tours')->active()->get();
         $articles = Article::orderBy('id')->limit(NUMBER_PAGINATION_PAGE)->get();
         $tours = Tour::orderBy('id')->limit(NUMBER_PAGINATION_PAGE)->get();

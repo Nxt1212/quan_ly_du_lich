@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admins' => \App\Http\Middleware\CheckLoginAdmin::class,
-        'users' => \App\Http\Middleware\CheckLoginUser::class
+        'users' => \App\Http\Middleware\CheckLoginUser::class,
+        'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
     ];
 }

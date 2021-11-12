@@ -26,7 +26,7 @@ class BookTour extends Model
         5 => 'btn-danger',
     ];
 
-    protected $fillable = ['b_tour_id', 'b_user_id', 'b_name', 'b_email', 'b_phone', 'b_address', 'b_start_date', 'b_note', 'b_number_adults', 'b_number_children', 'b_status'];
+    protected $fillable = ['b_tour_id', 'b_user_id', 'b_name', 'b_email', 'b_phone', 'b_address', 'b_start_date', 'b_note', 'b_number_adults', 'b_number_children','b_price_adults','b_price_children','b_status'];
 
     public function tour()
     {

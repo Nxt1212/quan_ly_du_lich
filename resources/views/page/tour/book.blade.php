@@ -93,13 +93,13 @@
                                 <span class="text-danger">{{ $errors->first('b_address') }}</span>
                             @endif
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="inputEmail3" class="control-label">Ngày khởi hành dự kiến</label>
-                            <input type="date" name="b_start_date" class="form-control">
+                            <input type="date" name="b_start_date" value="{{ old('b_address', isset($user) ? $user->address : '') }}" class="form-control">
                             @if ($errors->first('b_start_date'))
                                 <span class="text-danger">{{ $errors->first('b_start_date') }}</span>
                             @endif
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="inputEmail3" class="control-label">Số người lớn <sup class="text-danger">(*)</sup></label>
                             <input type="number" name="b_number_adults" class="form-control" placeholder="Số người lớn">
@@ -108,7 +108,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="control-label">Số trẻ em <sup class="text-danger">(*)</sup></label>
+                            <label for="inputEmail3" class="control-label">Số trẻ em (Dưới 14 tuổi) <sup class="text-danger">(*)</sup></label>
                             <input type="number" name="b_number_children" class="form-control" placeholder="Số trẻ em">
                             @if ($errors->first('b_number_children'))
                                 <span class="text-danger">{{ $errors->first('b_number_children') }}</span>
@@ -116,7 +116,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="control-label">Ghi chú</label>
-                            <textarea name="b_note" id="message" cols="20" rows="5" class="form-control"></textarea>
+                            <textarea name="b_note"  placeholder="Thông tin chi tiết để chúng tôi liên hệ nhanh chóng..." id="message" cols="20" rows="5" class="form-control"></textarea>
                         </div>
                         <div class="col-md-12 text-center">
                             <div class="form-group">
