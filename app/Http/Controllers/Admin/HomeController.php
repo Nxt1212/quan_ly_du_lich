@@ -80,7 +80,12 @@ class HomeController extends Controller
             ->select(\DB::raw('sum(b_number_children) as totalMoney'), \DB::raw('DATE(created_at) day'))
             ->groupBy('day')
             ->get()->toArray();
-            
+        //thống kê doanh thu
+        $money = BookTour::where('b_status',3)->whereMonth('created_at', $month)->whereYear('created_at', $year)
+        ->select(\DB::raw('(sum(b_price_adults*b_number_adults)+sum(b_price_children*b_number_children)) as totalMoney'), \DB::raw('DATE(created_at) day'))
+        ->groupBy('day')
+        ->get()->toArray();
+        $arrmoney = [];
         $arrRevenueTransactionMonth = [];
         $arrRevenueTransactionMonthDefault = [];
         foreach($listDay as $day) {
@@ -102,6 +107,15 @@ class HomeController extends Controller
                 }
             }
             $arrRevenueTransactionMonthDefault[] = (int)$total;
+
+            $total = 0;
+            foreach ($money as $key => $revenue) {
+                if ($revenue['day'] ==  $day) {
+                    $total = $revenue['totalMoney'];
+                    break;
+                }
+            }
+            $arrmoney[] = (int)$total;
         }
 
         $viewData = [
@@ -112,7 +126,8 @@ class HomeController extends Controller
             'statusTransaction'          => json_encode($statusTransaction),
             'listDay'                    => json_encode($listDay),
             'arrRevenueTransactionMonth' => json_encode($arrRevenueTransactionMonth),
-            'arrRevenueTransactionMonthDefault' => json_encode($arrRevenueTransactionMonthDefault)
+            'arrRevenueTransactionMonthDefault' => json_encode($arrRevenueTransactionMonthDefault),
+            'arrmoney' => json_encode($arrmoney),
         ];
         return view('admin.home.index', $viewData);
     }

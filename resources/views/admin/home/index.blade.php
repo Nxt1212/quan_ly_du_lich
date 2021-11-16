@@ -139,6 +139,14 @@
                         </figure>
                     </div>
                 </div>
+                <div class="row" style="margin-bottom: 15px;">
+                <div class="col-sm-12">
+                        <figure class="highcharts-figure">
+                            <div id="container3" data-list-day="{{ $listDay }}"  data-money={{ $arrmoney }}>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -164,6 +172,14 @@
 
         let listMoneyMonthDefault = $("#container2").attr('data-money-default');
         listMoneyMonthDefault = JSON.parse(listMoneyMonthDefault);
+
+        let listday2 = $("#container3").attr("data-list-day");
+        listday2 = JSON.parse(listday2);
+
+        let listMoneyMonth2 = $("#container3").attr('data-money');
+        listMoneyMonth2 = JSON.parse(listMoneyMonth2);
+
+
 
         Highcharts.chart('container', {
 
@@ -203,11 +219,11 @@
             },
             yAxis: {
                 title: {
-                    text: 'Temperature'
+                    text: 'Số lượng khách hàng'
                 },
                 labels: {
                     formatter: function () {
-                        return this.value + '°';
+                        return this.value ;
                     }
                 }
             },
@@ -238,7 +254,56 @@
                         symbol: 'square'
                     },
                     data: listMoneyMonthDefault
+                },
+               
+            ]
+        });
+        Highcharts.chart('container3', {
+            chart: {
+                type: 'spline'
+            },
+            title: {
+                text: 'Thống kê Doanh thu trong tháng'
+            },
+            subtitle: {
+                text: 'Dữ liệu thống kê'
+            },
+            xAxis: {
+                categories: listday2
+            },
+            yAxis: {
+                title: {
+                    text: 'Tiền'
+                },
+                // number_format($totalPrice, 0,',','.') 
+                labels: {
+                    formatter: function () {
+                        return this.value ;
+                    }
                 }
+            },
+            tooltip: {
+                crosshairs: true,
+                shared: true
+            },
+            plotOptions: {
+                spline: {
+                    marker: {
+                        radius: 4,
+                        lineColor: '#666666',
+                        lineWidth: 1
+                    }
+                }
+            },
+            series: [
+                {
+                    name: 'Doanh thu',
+                    marker: {
+                        symbol: 'square'
+                    },
+                    data: listMoneyMonth2
+                },
+                
             ]
         });
     </script>

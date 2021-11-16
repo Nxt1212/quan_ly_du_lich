@@ -15,14 +15,14 @@ class BookTour extends Model
         1 => 'Tiếp nhận',
         2 => 'Đã xác nhận',
         3 => 'Đã thanh toán',
-        4 => 'Đã kết thúc',
+       // 4 => 'Đã kết thúc',
         5 => 'Đã hủy',
     ];
     const CLASS_STATUS = [
         1 => 'btn-secondary',
         2 => 'btn-info',
         3 => 'btn-success',
-        4 => 'btn-warning',
+       // 4 => 'btn-warning',
         5 => 'btn-danger',
     ];
 

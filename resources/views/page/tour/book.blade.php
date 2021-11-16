@@ -109,7 +109,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="control-label">Số trẻ em (Dưới 14 tuổi) <sup class="text-danger">(*)</sup></label>
-                            <input type="number" name="b_number_children" class="form-control" placeholder="Số trẻ em">
+                            <input type="number"  min="0" value="0" name="b_number_children" class="form-control" placeholder="Số trẻ em">
                             @if ($errors->first('b_number_children'))
                                 <span class="text-danger">{{ $errors->first('b_number_children') }}</span>
                             @endif
