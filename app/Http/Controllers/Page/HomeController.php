@@ -16,8 +16,8 @@ class HomeController extends Controller
     { 
         
         $locations = Location::with('tours')->active()->get();
-        $articles = Article::orderBy('id')->limit(NUMBER_PAGINATION_PAGE)->get();
-        $tours = Tour::orderBy('id')->limit(NUMBER_PAGINATION_PAGE)->get();
+        $articles = Article::orderBy('id')->limit(6)->get();
+        $tours = Tour::orderBy('t_start_date')->limit(6)->get();
         $comments = Comment::with('user')->where('cm_status', 2)->limit(10)->get();
         $viewData = [
             'locations' => $locations,

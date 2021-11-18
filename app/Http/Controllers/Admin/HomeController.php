@@ -77,12 +77,12 @@ class HomeController extends Controller
         
         // Thống kê khối lượng trẻ em đặt tour
         $revenueTransactionMonthDefault = BookTour::whereMonth('created_at', $month)->whereYear('created_at', $year)
-            ->select(\DB::raw('sum(b_number_children) as totalMoney'), \DB::raw('DATE(created_at) day'))
+            ->select(\DB::raw('(sum(b_number_children)+sum(b_number_child6)+sum(b_number_child2)) as totalMoney'), \DB::raw('DATE(created_at) day'))
             ->groupBy('day')
             ->get()->toArray();
         //thống kê doanh thu
         $money = BookTour::where('b_status',3)->whereMonth('created_at', $month)->whereYear('created_at', $year)
-        ->select(\DB::raw('(sum(b_price_adults*b_number_adults)+sum(b_price_children*b_number_children)) as totalMoney'), \DB::raw('DATE(created_at) day'))
+        ->select(\DB::raw('(sum(b_price_adults*b_number_adults)+sum(b_price_children*b_number_children)+sum(b_price_child6*b_number_child6)+sum(b_price_child2*b_number_child2)) as totalMoney'), \DB::raw('DATE(created_at) day'))
         ->groupBy('day')
         ->get()->toArray();
         $arrmoney = [];
@@ -117,12 +117,13 @@ class HomeController extends Controller
             }
             $arrmoney[] = (int)$total;
         }
-
+        $tours = Tour::orderByDesc('t_follow')->limit(3)->get();
         $viewData = [
             'user' => $user,
             'article' => $article,
             'bookTour' => $bookTour,
             'tour' => $tour,
+            'tours' => $tours,
             'statusTransaction'          => json_encode($statusTransaction),
             'listDay'                    => json_encode($listDay),
             'arrRevenueTransactionMonth' => json_encode($arrRevenueTransactionMonth),

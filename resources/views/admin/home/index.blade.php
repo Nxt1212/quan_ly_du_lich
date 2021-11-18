@@ -83,6 +83,35 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-body"  >
+                 
+                    <h3>Tour nổi bật </h3>
+
+<div>
+                    @if($tours->count() > 0)
+                    <table style="border-collapse: collapse; width: 100%; height: 68px;" border="1">
+<tbody>
+<tr style="height: 17px;">
+<td style="width: 33.3333%; text-align: center; height: 17px;"><strong><em>Mã Tour</em></strong></td>
+<td style="width: 33.3333%; text-align: center; height: 17px;"><strong><em>Tên tour</em></strong></td>
+<td style="width: 33.3333%; text-align: center; height: 17px;"><strong><em>Lượt đăng ký</em></strong></td>
+</tr>
+               @foreach($tours as $tour)
+               
+<tr style="height: 17px;">
+<td style="width: 33.3333%; text-align: center; height: 17px;">{{$tour->id}}</td>
+<td style="width: 33.3333%; text-align: center; height: 17px;">{{$tour->t_title}}</td>
+<td style="width: 33.3333%; text-align: center; height: 17px;">{{$tour->t_follow}}</td>
+</tr>
+
+
+               @endforeach
+</div>
+</tbody>
+</table>
+</div>
+           @endif
+<span> .</span>
                 <div class="col-sm-8" style="margin-left: 15px">
                     <form action="">
                         <div class="row">
@@ -101,6 +130,7 @@
                                     </select>
                                 </div>
                             </div>
+                           
                             <div class="col-sm-12 col-md-4">
                                 <?php $year = date('Y'); ?>
                                 <div class="form-group">

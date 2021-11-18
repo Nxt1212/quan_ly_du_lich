@@ -73,7 +73,7 @@ class BookTourController extends Controller
     public function updateStatus(Request $request, $status, $id)
     {
         $bookTour = BookTour::find($id);
-        $numberUser = $bookTour->b_number_adults + $bookTour->b_number_children;
+        $numberUser = $bookTour->b_number_adults + $bookTour->b_number_children+ $bookTour->b_number_child6+ $bookTour->b_number_child2;
         if (!$bookTour) {
             return redirect()->back()->with('error', 'Dữ liệu không tồn tại');
         }

@@ -37,7 +37,7 @@ class TourController extends Controller
             $tours->whereBetween('t_price_adults', [$price[0], $price[1]]);
         }
 
-        $tours = $tours->orderBy('t_status')->paginate(NUMBER_PAGINATION_PAGE);
+        $tours = $tours->orderBy('t_start_date')->paginate(NUMBER_PAGINATION_PAGE);
 
         $viewData = [
             'tours' => $tours
@@ -79,7 +79,7 @@ class TourController extends Controller
     public function postBookTour(BookTourRequest $request, $id)
     {
         $tour = Tour::find($id);
-        $numberUser = $request->b_number_adults + $request->b_number_children;
+        $numberUser = $request->b_number_adults + $request->b_number_children+ $request->b_number_child6+ $request->b_number_child2;
         if (($tour->t_number_registered + $numberUser) > $tour->t_number_guests) {
             return redirect()->back()->with('error', 'Số lượng người đăng ký đã vượt quá giới hạn');
         }
@@ -93,6 +93,8 @@ class TourController extends Controller
             $params['b_status'] = 1;
             $params['b_price_adults']= $tour->t_price_adults -( $tour->t_price_adults* $tour->t_sale/100);
             $params['b_price_children']=$tour->t_price_children -( $tour->t_price_children* $tour->t_sale/100); 
+            $params['b_price_child6']=($tour->t_price_children -( $tour->t_price_children* $tour->t_sale/100))*50/100;
+            $params['b_price_child2']=($tour->t_price_children -( $tour->t_price_children* $tour->t_sale/100))*25/100;
             $book = BookTour::create($params);
             if ($book) {
                 $tour->t_follow = $tour->t_follow + $numberUser;

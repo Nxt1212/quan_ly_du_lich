@@ -108,8 +108,22 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="control-label">Số trẻ em (Dưới 14 tuổi) <sup class="text-danger">(*)</sup></label>
+                            <label for="inputEmail3" class="control-label">Số trẻ em (6 - 12 tuổi) <sup class="text-danger">(*)</sup></label>
                             <input type="number"  min="0" value="0" name="b_number_children" class="form-control" placeholder="Số trẻ em">
+                            @if ($errors->first('b_number_children'))
+                                <span class="text-danger">{{ $errors->first('b_number_children') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Số trẻ em (2-6 tuổi) <sup class="text-danger">(*)</sup></label>
+                            <input type="number"  min="0" value="0" name="b_number_child6" class="form-control" placeholder="Số trẻ em">
+                            @if ($errors->first('b_number_children'))
+                                <span class="text-danger">{{ $errors->first('b_number_children') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="control-label">Số trẻ em (Dưới 2 tuổi) <sup class="text-danger">(*)</sup></label>
+                            <input type="number"  min="0" value="0" name="b_number_child2" class="form-control a" placeholder="Số trẻ em">
                             @if ($errors->first('b_number_children'))
                                 <span class="text-danger">{{ $errors->first('b_number_children') }}</span>
                             @endif
@@ -123,6 +137,7 @@
                                 <input type="submit" value="Đặt Tour" class="btn btn-primary py-3 px-5">
                             </div>
                         </div>
+                        
                     </form>
 
                 </div>
@@ -144,9 +159,38 @@
                     <div class="col-md-12">
                         <img src="{{ asset('page/images/travel.jpg') }}" alt="" class="image-book">
                     </div>
+                    <div>
+                    <table style="border-collapse: collapse; width: 100%;margin-top:20px" border="1">
+<tbody>
+<tr>
+<td style="width: 10%;">Loại gi&aacute;/Độ tuổi</td>
+<td style="width: 20%;">Người lớn(tr&ecirc;n 12 tuổi)</td>
+<td style="width: 20%;">trẻ em(6-12 tuổi)</td>
+<td style="width: 20%;">trẻ em(2-6 tuổi)</td>
+<td style="width: 20%;">Sơ sinh( &lt;2 tuổi)</td>
+</tr>
+<tr>
+<td style="width: 10%;">Gi&aacute;&nbsp;</td>
+<td style="width: 20%;">{{ number_format($tour->t_price_adults-($tour->t_price_adults*$tour->t_sale/100),0,',','.') }} vnd</td>
+<td style="width: 20%;">{{ number_format($tour->t_price_children-($tour->t_price_children*$tour->t_sale/100),0,',','.') }} vnd</td>
+<td style="width: 20%;">{{ number_format(($tour->t_price_children-($tour->t_price_children*$tour->t_sale/100))*50/100,0,',','.') }} vnd}</td>
+<td style="width: 20%;">{{ number_format(($tour->t_price_children-($tour->t_price_children*$tour->t_sale/100))*25/100,0,',','.') }} vnd</td>
+</tr>
+</tbody>
+</table>
+</div>
                 </div>
             </div>
         </div>
+        <script>
+    $('.a').on('input',function(){
+        var $a =$(this).val();
+        var $p = $(this).parents('tr');
+        var $b=300;
+        var $t=$p.find('.t');
+        $t.text($b*$a);
+    })
+</script>
     </section>
 @stop
 @section('script')
